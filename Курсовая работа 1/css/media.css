@@ -1,0 +1,144 @@
+@media screen and (max-width: 1280px) {
+}
+@media (min-width: 768px) and (max-width: 979px) {
+    .logo__text {
+        font-size: 17px;
+    }
+    .menu > ul > li > a {
+        font-size: 12px;
+    }
+    .slider-item-inner{
+        padding: 195px 20px;
+    }
+    .h1__text{
+        font-size: 26px;
+    }
+    .h5__text{
+        font-size: 13px;
+    }
+}
+@media (max-width: 823px) {
+    .menu ul li {
+        margin: 0 0 0 32px;
+    }
+    .slider-item-inner{
+        padding: 175px 20px;
+    }
+    .h1__text{
+        font-size: 22px;
+    }
+    .h5__text{
+        font-size: 11px;
+    }
+}
+/* Planchette, Tablet */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+    .logo__text {
+        font-size: 18px;
+    }
+    .burger {
+        display: block;
+    }
+    .features__inner {
+        max-width: 1170px;
+    }
+    .features__item {
+        width: 45%;
+    }
+    .last-works__inner,
+    .news__text,
+    .contact-us-title {
+        text-align: center;
+    }
+    .last-works__text::after {
+        display: none;
+    }
+    .news__text::after {
+        display: none;
+    }
+    .contact-us-title::after {
+        display: none;
+    }
+    .last-works__img,
+    .news__img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .news__img img {
+        display: none;
+    }
+    .last-works__numb-text {
+        font-size: 9px;
+    }
+    .item {
+        width: 100%;
+        text-align: center;
+    }
+    .item__title {
+        display: inline-block;
+        background-color: #26a1e4;
+        color: white;
+        padding: 5px 20px;
+        border-radius: 2px;
+        margin-bottom: 5px;
+    }
+    .item__text,
+    .info ul li {
+        margin-bottom: 10px;
+        color: white;
+        border-radius: 10px;
+        display: none;
+    }
+    .info ul {
+        margin: 0;
+        padding: 0;
+    }
+    .info ul li:nth-child(1)::before {
+        display: none;
+    }
+    .info ul li:nth-child(2)::before {
+        display: none;
+    }
+    .info ul li:nth-child(3)::before {
+        display: none;
+    }
+    .write-us-inner-left {
+        width: 100%;
+    }
+    .write-us-inner-right {
+        width: 100%;
+    }
+    .last-works__numb {
+        width: 48%;
+        margin-bottom: 20px;
+    }
+    .feedback__btn {
+        margin: 0 auto;
+    }
+    .features__inner-title {
+        font-size: 10px;
+    }
+    .slider-item-inner{
+        padding: 160px 20px;
+    }
+    .h1__text{
+        font-size: 20px;
+    }
+    .h5__text{
+        font-size: 10px;
+    }
+}
+/* Small devices */
+@media (max-width: 480px) {
+    .logo__text {
+        display: none;
+    }
+}
+@media (max-width: 799px) {
+    .menu ul li {
+        margin: 0 0 0 30px;
+    }
+}

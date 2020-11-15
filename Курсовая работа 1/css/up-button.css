@@ -1,0 +1,43 @@
+.up-button {
+    position: absolute;
+    z-index: 5;
+}
+.up-button-inner {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+}
+.up {
+    width: 45px;
+    height: 45px;
+    background: #26a1e4;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.vertical {
+    transform: rotate(45deg) translate(-15px, 0px);
+    background: #fff;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    height: 50%;
+    width: 5px;
+}
+.horizontal {
+    transform: rotate(45deg) translate(-5px, 2px);
+    background: #fff;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    width: 50%;
+    height: 5px;
+}
