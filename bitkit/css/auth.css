@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0;
+    ont-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    font-size: 16px;
+}
+.wrapper{
+    max-width: 1600px;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: auto;
+    background: #4f754f;
+
+}
+.form{
+    width: 300px;
+    min-height: 200px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    margin: 0 auto;
+ vertical-align: middle;
+    text-align: center;
+    text-align: center;
+}
