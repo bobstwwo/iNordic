@@ -1,0 +1,382 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.header-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  background-color: black;
+  color: white;
+  font-family: Lato;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 19px;
+}
+
+.links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.links ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+}
+
+.links ul li {
+  margin: 0 20px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.links ul li a {
+  text-decoration: none;
+  color: #303030;
+}
+
+.right {
+  position: absolute;
+  top: 12px;
+  right: 0;
+}
+
+.line {
+  height: 1px;
+  opacity: 0.1;
+  background-color: black;
+  margin: 35px 20px 0 20px;
+}
+
+/*MAIN*/
+.main-inner-h1 h1 {
+  color: #303030;
+  font-family: "Myriad Pro";
+  font-size: calc(15px + 43 * (100vw / 1280));
+  text-align: center;
+  text-transform: uppercase;
+  margin: 150px 0 0 0;
+}
+
+.main-inner-h5 h5 {
+  color: #606060;
+  font-family: Georgia;
+  font-size: 24px;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 1.2px;
+  margin: 30px 0;
+}
+
+.main-inner-btn {
+  width: 200px;
+  font-family: "Myriad Pro";
+  font-size: 14px;
+  line-height: 42.91px;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.main-inner-btn a {
+  text-decoration: none;
+  color: #303030;
+}
+
+.main-inner-category {
+  height: 600px;
+  background-color: darkturquoise;
+  margin: 50px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main-inner-category-item {
+  width: 25%;
+  height: 25%;
+  background: url("img/main/1.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-inner-category-item img {
+  width: 100%;
+  height: 100%;
+}
+
+.main-inner-category-item-title {
+  color: #ffffff;
+  font-family: "Myriad Pro";
+  font-size: 24px;
+  line-height: 27px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.main-inner-category-item-description {
+  font-family: Georgia;
+  font-size: 18px;
+  font-style: italic;
+  letter-spacing: 0.9px;
+  color: #ffffff;
+}
+
+.big {
+  height: 550px;
+}
+
+.main-inner-h2 {
+  color: #303030;
+  font-family: "Myriad Pro";
+  text-align: center;
+  text-transform: uppercase;
+  margin: 150px 0 0 0;
+}
+
+.main-inner-h5-second {
+  color: #606060;
+  font-family: Georgia;
+  font-size: 18px;
+  font-style: italic;
+  text-align: center;
+}
+
+.main-inner-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+input::-webkit-input-placeholder {
+  color: #606060;
+  font-family: "Myriad Pro";
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 43px;
+  text-align: left;
+}
+
+input:-ms-input-placeholder {
+  color: #606060;
+  font-family: "Myriad Pro";
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 43px;
+  text-align: left;
+}
+
+input::-ms-input-placeholder {
+  color: #606060;
+  font-family: "Myriad Pro";
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 43px;
+  text-align: left;
+}
+
+input::placeholder {
+  color: #606060;
+  font-family: "Myriad Pro";
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 43px;
+  text-align: left;
+}
+
+.form input {
+  width: 470px;
+  height: 50px;
+}
+
+.form-button {
+  color: #ffffff;
+  font-family: "Myriad Pro";
+  font-size: 14px;
+  line-height: 43px;
+  background-color: orange;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: uppercase;
+  padding: 0 20px;
+}
+
+.form-feed {
+  color: #ed1c24;
+  font-family: "Myriad Pro";
+  font-size: 14px;
+  font-style: italic;
+  line-height: 43px;
+  text-align: center;
+}
+
+/*FOOTER*/
+.footer-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer-inner-item {
+  margin: 275px 20px 0 20px;
+}
+
+.footer-inner-item-title {
+  color: #303030;
+  font-family: "Myriad Pro";
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 35px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.footer-inner-item-content {
+  color: #303030;
+  font-family: "Myriad Pro";
+  font-size: 12px;
+  line-height: 23px;
+  text-align: left;
+  letter-spacing: 0.6px;
+}
+
+.footer-inner-item-content ul {
+  padding-left: 0;
+}
+
+.footer-inner-item-content ul li {
+  margin-bottom: 5px;
+}
+
+.shop {
+  padding: 0 180px;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.social-item {
+  width: 25%;
+  height: 30px;
+  margin: 10px 10px 10px 0;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.social-item:hover {
+  cursor: pointer;
+}
+
+/*Media*/
+@media (max-width: 898px) {
+  .links ul li {
+    margin: 0 14px;
+  }
+  .main-inner-h5 h5 {
+    font-size: 18px;
+  }
+  .main-inner-h2 {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-inner {
+    display: none;
+  }
+  .links {
+    display: none;
+  }
+  .main-inner-h1 h1 {
+    font-size: 32px;
+  }
+  .main-inner-h5 h5 {
+    font-size: 14px;
+  }
+  .main-inner-h2 {
+    font-size: 14px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

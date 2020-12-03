@@ -1,0 +1,30 @@
+@media (max-width: 898px) {
+    .links ul li {
+        margin: 0 14px;
+    }
+    .main-inner-h5 h5 {
+        font-size: 18px;
+    }
+    .main-inner-h2{
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer-inner {
+        display: none;
+    }
+    .links {
+        display: none;
+    }
+    .main-inner-h1 h1 {
+        font-size: 32px;
+    }
+    .main-inner-h5 h5 {
+        font-size: 14px;
+    }
+    .main-inner-h2{
+        font-size: 14px;
+    }
+}
+
