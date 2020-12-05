@@ -128,7 +128,7 @@ li {
 .main-inner-category-item {
   width: 25%;
   height: 25%;
-  background: url("img/main/1.jpg");
+  background: url("../img/main/1.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
