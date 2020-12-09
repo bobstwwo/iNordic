@@ -14,146 +14,36 @@
             Тут должны быть фильтры
         </span>
     </div>
-    <div class="goods">
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/1.jpg" alt="">
+    <div id="goods" class="goods">
+        <?php
+        include($_SERVER['DOCUMENT_ROOT'] . '/iNordic/eshop/system/classes/Connection.php');
+        $obj = new Connection();
+        $request = 'select * from all_men';
+        $result = $obj->getTable($request);
+        while ($line = mysqli_fetch_assoc($result)) {
+            echo '
+            <div class="goods-item">
+                <div class="goods-item-photo">
+                    <a href="good.php?category='.$line['category'].'&id='.$line['id'].'">
+                        <img src="' . $line['photo'] . '" alt="">
+                    </a>
+                </div>
+                <div class="goods-item-title">
+                    <a href="good.php?category='.$line['category'].'&id='.$line['id'].'">
+                        ' . $line['name'] . '
+                    </a>
+                </div>
+                <div class="goods-item-price">
+                    ' . $line['price'] . ' руб.
+                </div>
             </div>
-            <div class="goods-item-title">
-                Куртка синяя
-            </div>
-            <div class="goods-item-price">
-                5400 руб.
-            </div>
-        </div>
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/4.jpg" alt="">
-            </div>
-            <div class="goods-item-title">
-                Кожанная куртка
-            </div>
-            <div class="goods-item-price">
-                22500 руб.
-            </div>
-        </div>
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/3.png" alt="">
-            </div>
-            <div class="goods-item-title">
-                Куртка с карманами
-            </div>
-            <div class="goods-item-price">
-                9200 руб.
-            </div>
-        </div>
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/2.jpg" alt="">
-            </div>
-            <div class="goods-item-title">
-                Куртка с капюшоном
-            </div>
-            <div class="goods-item-price">
-                6100 руб.
-            </div>
-        </div>
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/1.jpg" alt="">
-            </div>
-            <div class="goods-item-title">
-                Куртка синяя
-            </div>
-            <div class="goods-item-price">
-                5400 руб.
-            </div>
-        </div>
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/1.jpg" alt="">
-            </div>
-            <div class="goods-item-title">
-                Куртка синяя
-            </div>
-            <div class="goods-item-price">
-                5400 руб.
-            </div>
-        </div>
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/1.jpg" alt="">
-            </div>
-            <div class="goods-item-title">
-                Куртка синяя
-            </div>
-            <div class="goods-item-price">
-                5400 руб.
-            </div>
-        </div>
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/1.jpg" alt="">
-            </div>
-            <div class="goods-item-title">
-                Куртка синяя
-            </div>
-            <div class="goods-item-price">
-                5400 руб.
-            </div>
-        </div>
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/1.jpg" alt="">
-            </div>
-            <div class="goods-item-title">
-                Куртка синяя
-            </div>
-            <div class="goods-item-price">
-                5400 руб.
-            </div>
-        </div>
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/1.jpg" alt="">
-            </div>
-            <div class="goods-item-title">
-                Куртка синяя
-            </div>
-            <div class="goods-item-price">
-                5400 руб.
-            </div>
-        </div>
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/1.jpg" alt="">
-            </div>
-            <div class="goods-item-title">
-                Куртка синяя
-            </div>
-            <div class="goods-item-price">
-                5400 руб.
-            </div>
-        </div>
-        <div class="goods-item">
-            <div class="goods-item-photo">
-                <img src="img/catalogue/1.jpg" alt="">
-            </div>
-            <div class="goods-item-title">
-                Куртка синяя
-            </div>
-            <div class="goods-item-price">
-                5400 руб.
-            </div>
-        </div>
+                ';
+        }
+        ?>
     </div>
     <div class="next">
-            <div class="box">
-                1
-            </div>
-            <div class="box black">
-                2
-            </div>
+        <div class="box">
+            1
+        </div>
     </div>
 </div>

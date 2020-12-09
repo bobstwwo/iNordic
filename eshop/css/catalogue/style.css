@@ -1,102 +1,104 @@
 .head-links {
-  margin: 20px 0 0 19px;
-  text-transform: uppercase;
-  font-size: 10px;
+    margin: 20px 0 0 19px;
+    text-transform: uppercase;
+    font-size: 10px;
 }
 
 .title {
-  text-transform: uppercase;
-  font-size: 40px;
-  font-weight: 500;
-  text-align: center;
-  margin: 20px 0 0 0;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    margin: 20px 0 0 0;
 }
 
 .desc {
-  margin: 10px 0 0 0;
-  font-size: 20px;
-  text-align: center;
-  font-style: italic;
+    margin: 10px 0 0 0;
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
 }
 
 .filters {
-  text-align: center;
-  margin-top: 30px;
+    text-align: center;
+    margin-top: 30px;
 }
 
 /*CATALOGUE*/
 .goods {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  height: 1100px;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin-top: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    height: 1100px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-top: 50px;
 }
 
 .goods-item {
-  width: 25%;
-  height: 32.9999%;
-  padding: 20px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin-top: 30px;
+    width: 25%;
+    height: 32.9999%;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 30px;
 }
 
 .goods-item-photo {
-  border: solid black 1px;
+    border: solid green 1px;
+    height: 70%;
 }
 
 .goods-item-photo img {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .goods-item-title {
-  margin-top: 20px;
-  text-align: center;
-  font-weight: 600;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
 }
 
 .goods-item-price {
-  margin-top: 5px;
-  text-align: center;
+    margin-top: 5px;
+    text-align: center;
 }
 
 /*BUTTONS UNDER*/
 .next {
-  margin: 120px 0 0 0;
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+    margin: 120px 0 0 0;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 .box {
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border: solid black 1px;
-  margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: solid black 1px;
+    margin-right: 5px;
 }
 
 .footer-inner-item {
-  margin-top: 80px !important;
+    margin-top: 80px !important;
 }
 
 .black {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
+
 /*# sourceMappingURL=style.css.map */

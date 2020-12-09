@@ -15,6 +15,12 @@
         <header>
             <?php
             include($_SERVER['DOCUMENT_ROOT'] . "/iNordic/eshop/components/header/header.php");
+            include($_SERVER['DOCUMENT_ROOT'] . "/iNordic/eshop/system/classes/Connection.php");
+            $category = $_GET['category'];
+            $obj = new Connection();
+            $request = 'select * from all_men where id='.$_GET['id'];
+            $result = $obj->getTable($request);
+            $line = mysqli_fetch_assoc($result);
             ?>
         </header>
         <main>
@@ -22,24 +28,23 @@
                 <div class="head-links">
                     <a href="#">Главная</a> /
                     <a href="#">Мужчинам</a> /
-                    <a href="#">Обувь</a> /
+                    <a href="#"><?php echo "$category"; ?></a> /
                     <a href="#">Кеды с полоской</a>
                 </div>
                 <div class="img">
-                    <img src="img/catalogue/9.jpg" alt="">
+                    <img src="<?=$line['photo']?>" alt="">
                 </div>
                 <div class="title">
-                    <span>Кеды с полоской</span>
+                    <span><?=$line['name']?></span>
                 </div>
                 <div class="artikul">
                     Артикул: 385904
                 </div>
                 <div class="price">
-                    <span>4500 руб.</span>
+                    <span><?=$line['price']?> руб.</span>
                 </div>
                 <div class="text">
-                    Отличные кеды из водонепроницаемого материала. Отлично подходят для любой погоды <br>
-                    Приятно сидят на ноге, стильные и комфортные
+                    <?=$line['description']?>
                 </div>
                 <div class="size">Размер</div>
                 <div class="next">
