@@ -28,7 +28,7 @@
                             <a href="#">Войти</a>
                         </li>
                         <li class="basket">
-                            <a href="#">Корзина (0) </a>
+                            <a href="basket.php">Корзина (0) </a>
                         </li>
                     </ul>
                 </div>
