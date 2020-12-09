@@ -1,0 +1,26 @@
+.img {
+    text-align: center;
+}
+.img img {
+    width: 30%;
+}
+.artikul,
+.price,
+.text,
+.size {
+    text-align: center;
+    margin-top: 20px;
+}
+.next{
+    margin:60px;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+.btn-inner{
+    padding: 20px 80px;
+    color: white;
+    background-color: orange;
+    border-radius: 5px;
+}

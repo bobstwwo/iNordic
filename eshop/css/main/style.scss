@@ -2,6 +2,9 @@ body {
     margin: 0;
     padding: 0;
 }
+li {
+    list-style-type: none;
+}
 .wrapper {
     max-width: 1280px;
     margin: 0 auto;
@@ -17,7 +20,7 @@ body {
     background-color: black;
     color: white;
 
-    font-family: Lato;
+    font-family: Lato, serif;
     font-size: 14px;
 
     text-transform: uppercase;
@@ -38,9 +41,6 @@ body {
 .links ul li {
     margin: 0 20px;
 }
-li {
-    list-style-type: none;
-}
 .links ul li a {
     text-decoration: none;
     color: #303030;
@@ -58,20 +58,18 @@ li {
 }
 
 /*MAIN*/
-
 .main-inner-h1 h1 {
     color: #303030;
-    font-family: "Myriad Pro";
+    font-family: "Myriad Pro", serif;
     font-size: calc(15px + 43 * (100vw / 1280));
     text-align: center;
     text-transform: uppercase;
 
     margin: 150px 0 0 0;
 }
-
 .main-inner-h5 h5 {
     color: #606060;
-    font-family: Georgia;
+    font-family: Georgia, serif;
     font-size: 24px;
     font-style: italic;
     text-align: center;
@@ -82,7 +80,7 @@ li {
 .main-inner-btn {
     width: 200px;
 
-    font-family: "Myriad Pro";
+    font-family: "Myriad Pro", serif;
     font-size: 14px;
     line-height: 42.91px;
     text-align: center;
@@ -97,49 +95,14 @@ li {
 .main-inner-category {
     height: 600px;
     background-color: darkturquoise;
-    margin: 50px 0 0 0;
+    margin: 50px 19px 0 19px;
 
     display: flex;
     flex-wrap: wrap;
 }
-.main-inner-category-item {
-    width: 25%;
-    height: 25%;
-    background: url("../img/main/1.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.main-inner-category-item img {
-    width: 100%;
-    height: 100%;
-}
-.main-inner-category-item-title {
-    color: #ffffff;
-    font-family: "Myriad Pro";
-    font-size: 24px;
-    line-height: 27px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-}
-.main-inner-category-item-description {
-    font-family: Georgia;
-    font-size: 18px;
-    font-style: italic;
-    letter-spacing: 0.9px;
-    color: #ffffff;
-}
-.big {
-    height: 550px;
-}
 .main-inner-h2 {
     color: #303030;
-    font-family: "Myriad Pro";
+    font-family: "Myriad Pro", serif;
     text-align: center;
     text-transform: uppercase;
 
@@ -147,7 +110,7 @@ li {
 }
 .main-inner-h5-second {
     color: #606060;
-    font-family: Georgia;
+    font-family: Georgia, serif;
     font-size: 18px;
     font-style: italic;
     text-align: center;
@@ -159,7 +122,7 @@ li {
 }
 input::placeholder {
     color: #606060;
-    font-family: "Myriad Pro";
+    font-family: "Myriad Pro", serif;
     font-size: 14px;
     font-weight: 400;
     font-style: italic;
@@ -172,7 +135,7 @@ input::placeholder {
 }
 .form-button {
     color: #ffffff;
-    font-family: "Myriad Pro";
+    font-family: "Myriad Pro", serif;
     font-size: 14px;
     line-height: 43px;
     background-color: orange;
@@ -184,7 +147,7 @@ input::placeholder {
 }
 .form-feed {
     color: #ed1c24;
-    font-family: "Myriad Pro";
+    font-family: "Myriad Pro", serif;
     font-size: 14px;
     font-style: italic;
     line-height: 43px;
@@ -201,7 +164,7 @@ input::placeholder {
 }
 .footer-inner-item-title {
     color: #303030;
-    font-family: "Myriad Pro";
+    font-family: "Myriad Pro", serif;
     font-size: 14px;
     font-weight: bold;
     line-height: 35px;
@@ -210,7 +173,7 @@ input::placeholder {
 }
 .footer-inner-item-content {
     color: #303030;
-    font-family: "Myriad Pro";
+    font-family: "Myriad Pro", serif;
     font-size: 12px;
     line-height: 23px;
     text-align: left;
@@ -236,7 +199,7 @@ a {
     justify-content: space-between;
 }
 .social-item {
-    width: 25%;
+    width: 22%;
     height: 30px;
     margin: 10px 10px 10px 0;
     border: 1px solid black;
@@ -248,6 +211,110 @@ a {
     cursor: pointer;
 }
 
+/*LOGOS OF AUTH and BASKET*/
+.auth {
+    &:before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        right: 50px;
+        background: url("../../img/main/user.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    position: relative;
+}
+.basket {
+    &:before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: url("../../img/main/shop.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 0;
+        right: 85px;
+    }
+    position: relative;
+}
+
+/*HOVER ON BUTTONS*/
+a {
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+/*CATEGORY*/
+.category {
+    height: 900px;
+    margin: 50px 19px 0 19px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.category-item {
+    height: 32.999%;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.big {
+    height: 66%;
+}
+.gb-fix {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.category-item-inner {
+    color: #ffffff;
+    text-align: center;
+}
+.category-item-title {
+    font-family: "Myriad Pro";
+    font-size: 24px;
+    line-height: 27px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.category-item-text {
+    color: #ffffff;
+    font-family: Georgia;
+    font-size: 18px;
+    font-style: italic;
+    letter-spacing: 0.9px;
+}
+.lines{
+    &:before{
+        position: absolute;
+        right: 200px;
+        top: 18px;
+        content: "";
+        width: 25px;
+        height: 2px;
+        background: white;
+    }
+    &:after{
+        position: absolute;
+        right: 85px;
+        top: 18px;
+        content: "";
+        width: 25px;
+        height: 2px;
+        background: white;
+    }
+    position: relative;
+}
+.arrow{
+    margin-bottom: 20px;
+}
+
 /*Media*/
 @import "media";
-
