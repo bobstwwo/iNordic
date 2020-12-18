@@ -11,16 +11,19 @@
     text-align: center;
     margin-top: 20px;
 }
-.next{
-    margin:60px;
+.next {
+    margin: 60px;
 }
-.btn{
+.btn {
     display: flex;
     justify-content: center;
 }
-.btn-inner{
+.btn-inner {
     padding: 20px 80px;
     color: white;
     background-color: orange;
     border-radius: 5px;
+    &:hover {
+        cursor: pointer;
+    }
 }

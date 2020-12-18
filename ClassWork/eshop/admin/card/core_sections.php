@@ -1,10 +1,25 @@
-<form action="create.php" method="POST">
+<?php
+
+if (isset($_GET['id'])) {
+    require_once($_SERVER['DOCUMENT_ROOT'].'/iNordic/ClassWork/eshop/system/classes/autoload.php');
+
+    $good = new Section(); 
+    
+    $fileName = 'update.php';
+} else {
+    $fileName = 'create.php'; 
+}
+
+?>
+
+<form action="http://localhost/iNordic/ClassWork/eshop/system/controllers/<?=$fileName?>" method="POST">
     <div>
-        <input type="hidden" name="table" value="<?=$table?>">
+        <input type="hidden" name="class_name" value="Section">
+        <input type="hidden" name="id" value="<?=$_GET['id']?>">
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Название</label>
-        <input name="title" type="text" class="form-control" id="exampleInputEmail1"
+        <input name="title" value="<?= isset($_GET['id']) ? $good->getField('title') : ''   ?>" type="text" class="form-control" id="exampleInputEmail1"
                aria-describedby="emailHelp">
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
             else.</small>
@@ -12,7 +27,7 @@
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Описание</label>
         <textarea name="description" class="form-control" id="exampleFormControlTextarea1"
-                  rows="3"></textarea>
+                  rows="3"><?= isset($_GET['id']) ? $good->getField('description') : '' ?></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

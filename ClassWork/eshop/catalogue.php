@@ -13,13 +13,10 @@
              echo "ALL";
   }
   
-    include('system/classes/Unit.php');      
-    include('system/classes/Good.php');
-
-    $goods = new Good();
+  include_once($_SERVER['DOCUMENT_ROOT'] . '/iNordic/ClassWork/eshop/system/classes/autoload.php');
 
     //получили все записи из БД с помощью методы 
-    $results = $goods->getAllLines();
+    $results = Good::getAllLines();
 
    ?>
 

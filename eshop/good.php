@@ -18,9 +18,13 @@
             include($_SERVER['DOCUMENT_ROOT'] . "/iNordic/eshop/system/classes/Connection.php");
             $category = $_GET['category'];
             $obj = new Connection();
-            $request = 'select * from all_men where id='.$_GET['id'];
+            $request = 'select * from all_men where id=' . $_GET['id'];
             $result = $obj->getTable($request);
             $line = mysqli_fetch_assoc($result);
+            $jsonStr = json_encode($line);
+            $fd = fopen("files/cookie.json", 'w');
+            fwrite($fd, $jsonStr);
+            fclose($fd);
             ?>
         </header>
         <main>
@@ -32,19 +36,19 @@
                     <a href="#">Кеды с полоской</a>
                 </div>
                 <div class="img">
-                    <img src="<?=$line['photo']?>" alt="">
+                    <img src="<?= $line['photo'] ?>" alt="">
                 </div>
                 <div class="title">
-                    <span><?=$line['name']?></span>
+                    <span><?= $line['name'] ?></span>
                 </div>
                 <div class="artikul">
                     Артикул: 385904
                 </div>
                 <div class="price">
-                    <span><?=$line['price']?> руб.</span>
+                    <span><?= $line['price'] ?> руб.</span>
                 </div>
                 <div class="text">
-                    <?=$line['description']?>
+                    <?= $line['description'] ?>
                 </div>
                 <div class="size">Размер</div>
                 <div class="next">
@@ -57,7 +61,9 @@
                 </div>
                 <div class="btn">
                     <div class="btn-inner">
-                    Добавить в карзину
+                        <a href="system/actions/add-cookie.php?id=<?=$line['id']?>">
+                            Добавить в карзину
+                        </a>
                     </div>
                 </div>
             </div>
@@ -66,6 +72,8 @@
         include($_SERVER['DOCUMENT_ROOT'] . "/iNordic/eshop/components/footer/footer.php");
         ?>
     </div>
+    <script src="js/add-cookie.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 
 </html>

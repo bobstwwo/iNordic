@@ -33,4 +33,8 @@
   background-color: orange;
   border-radius: 5px;
 }
+
+.btn-inner:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */

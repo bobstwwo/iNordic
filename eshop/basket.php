@@ -43,44 +43,44 @@
                     </div>
                 </div>
                 <div class="basket-goods-items">
-                    <div class="basket-item">
-                        <div class="item-left">
-                            <div class="item-photo">
-                                <img src="img/catalogue/1.jpg" alt="">
+                    <?php
+                    if ($_COOKIE != null) {
+                        $str = implode('%', $_COOKIE);
+                        $arr = explode('%', $str);
+                        include($_SERVER['DOCUMENT_ROOT'] . '/iNordic/eshop/system/classes/Connection.php');
+                        $count = sizeof($arr);
+                        $total_price = 0;
+                        for ($i = 0; $i < $count; $i++) {
+                            $obj = new Connection();
+                            $request = 'select * from all_men where id = ' . $arr[$i];
+                            $line = mysqli_fetch_assoc($obj->getTable($request));
+                            $total_price = $total_price + $line['price'];
+                    ?>
+                            <div class="basket-item">
+                                <div class="item-left">
+                                    <div class="item-photo">
+                                        <img src="<?= $line['photo'] ?>" alt="">
+                                    </div>
+                                    <div>
+                                        <div><?= $line['name'] ?></div>
+                                        <div>Арт:123412</div>
+                                    </div>
+                                </div>
+                                <div class="item-right">
+                                    <div>39</div>
+                                    <div>1</div>
+                                    <div><?= $line['price'] ?> руб.</div>
+                                    <div class="delete"><img src="img/delete.png" alt=""></div>
+                                </div>
                             </div>
-                            <div>
-                                <div>Куртка синяя</div>
-                                <div>Арт:123412</div>
-                            </div>
-                        </div>
-                        <div class="item-right">
-                            <div>39</div>
-                            <div>1</div>
-                            <div>3800 руб.</div>
-                            <div class="delete"><img src="img/delete.png" alt=""></div>
-                        </div>
-                    </div>
-                    <div class="basket-item">
-                        <div class="item-left">
-                            <div class="item-photo">
-                                <img src="img/catalogue/1.jpg" alt="">
-                            </div>
-                            <div>
-                                <div>Куртка синяя</div>
-                                <div>Арт:123412</div>
-                            </div>
-                        </div>
-                        <div class="item-right">
-                            <div>39</div>
-                            <div>1</div>
-                            <div>3800 руб.</div>
-                            <div class="delete"><img src="img/delete.png" alt=""></div>
-                        </div>
-                    </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
                 <div class="total-price">
                     <div class="total-price-inner">
-                        Итого: <span>12500 руб.</span>
+                        Итого: <span><?= $total_price ?> руб.</span>
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@
                 </div>
                 <div class="btn">
                     <div class="btn-inner">
-                       Оставить заявку
+                        Оставить заявку
                     </div>
                 </div>
             </div>
