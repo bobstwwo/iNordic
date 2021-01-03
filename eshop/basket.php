@@ -80,7 +80,7 @@
                 </div>
                 <div class="total-price">
                     <div class="total-price-inner">
-                        Итого: <span><?= $total_price ?> руб.</span>
+                        Итого: <span>12000 руб.</span>
                     </div>
                 </div>
             </div>
