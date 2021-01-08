@@ -38,7 +38,7 @@ body {
 textarea {
     cursor: pointer;
 }
-textarea:focus{
+textarea:focus {
     cursor: text;
 }
 .column__top {
@@ -199,33 +199,50 @@ textarea:focus{
     opacity: 0.5;
 }
 
-
 /*Добавление карточки*/
-.card__text-textarea{
+.card__text-textarea {
     width: 225px;
     height: 22px;
     outline: none;
     border: none;
     resize: none;
-    &::placeholder{
+    &::placeholder {
         font-size: 11px;
     }
 }
-.not__card{
-    &:hover{
+.not__card {
+    &:hover {
         background-color: white;
     }
+    margin: -8px 0 6px 0;
 }
-.new__card{
-    
+.new__card {
+    border-radius: 3px;
 }
-.new__card-btn{
-
+.new__card-btn {
+    background-color: #5aad45;
+    padding: 4px 6px;
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+    margin-right: 13px;
+    transition: opacity 0.3s;
+    &:hover {
+        opacity: 0.8;
+    }
 }
-.new__card-cancel{
-
+.new__card-cancel {
+    & img {
+        width: 12px;
+        height: 12px;
+        transition: opacity 0.3s;
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    display: flex;
+    align-items: center;
 }
-
 
 /*УНИВЕРСАЛЬНЫЕ СТИЛИ*/
 .df {
