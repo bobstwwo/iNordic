@@ -4,7 +4,7 @@
             <img src="images/plus.svg" alt="">
         </div>
         <div class="column__bottom-text">
-            Добавить еще одну карточку
+            Добавить карточку
         </div>
     </div>
 </template>

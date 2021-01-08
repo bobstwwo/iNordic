@@ -6,6 +6,12 @@ $(document).ready(function () {
         $(this).next().css("opacity", "0");
     });
 
+    makeSortable();
+
+    addBtnWithPlus();
+});
+
+function makeSortable() {
     $('.cards').sortable({
         connectWith: ".cards",
         cursor: "move",
@@ -18,27 +24,21 @@ $(document).ready(function () {
         revert: true,
         scrollSpeed: 10000,
         cursor: "move",
-        tolerance: "pointer"
-        // handle: ".column__top"
+        tolerance: "pointer",
+        handle: ".column__top"
     });
+};
 
+function addBtnWithPlus() {
     let with__plus = document.getElementById('with__plus').innerHTML;
     let element = document.getElementsByClassName('cards');
     if (typeof (element) != 'undefined' && element != null) {
         for (let i = 0; i < element.length; i++) {
             let par = $(element[i]).parent();
-            $(par).append(with__plus);
-        }
-    }
-});
-
-function addBtnWithPlus(){
-    let with__plus = document.getElementById('with__plus').innerHTML;
-    let element = document.getElementsByClassName('cards');
-    if (typeof (element) != 'undefined' && element != null) {
-        for (let i = 0; i < element.length; i++) {
-            let par = $(element[i]).parent();
-            $(par).append(with__plus);
+            if (!$(par).children('div').last().hasClass('column__bottom')) {
+                $(par).append(with__plus);
+                makeSortable();
+            }
         }
     }
 }

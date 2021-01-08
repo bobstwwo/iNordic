@@ -13,8 +13,8 @@ body {
 // BOARD STYLES
 .columns {
     margin: 10px 0;
-    max-width: 100%;
-    position: fixed;
+    width: 100%;
+    // position: fixed;
 }
 .cards {
     max-height: 63vh;
@@ -23,6 +23,7 @@ body {
     padding: 8px 0;
 }
 .column {
+
     width: 258px;
     height: 100%;
     background-color: #ebecf0;
@@ -183,6 +184,8 @@ textarea:focus {
         background-color: #f0f8ff;
         cursor: pointer;
     }
+    justify-content: center;
+    align-items: center;
 }
 .column__bottom-plus {
     display: flex;
@@ -265,6 +268,14 @@ textarea:focus {
     justify-content: center;
     font-size: 18px;
 }
+//Fixing bugs
+.add__column-text {
+    width: 258px;
+}
+.add__column-textarea {
+    width: 254px;
+}
+//Fixing bugs
 .add__column-plus {
     display: flex;
     align-items: center;
@@ -321,6 +332,7 @@ textarea:focus {
 
 /*SCROLL BAR*/
 .my-board {
+    width: 100%;
     height: 83%;
     overflow-x: auto;
     overflow-y: hidden;
