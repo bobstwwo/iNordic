@@ -54,7 +54,7 @@
                 Пригласить
             </div>
         </div>
-        <div class="my-board ">
+        <div class="my-board">
             <div class="columns df">
                 <div class="column">
                     <div class="column__top df">
@@ -100,6 +100,14 @@
                                 <p class="hint">Эта карточка с описанием.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="add__column df" onclick="addColumn(this)">
+                    <div class="add__column-plus">
+                        <img src="images/plus.svg" alt="">
+                    </div>
+                    <div class="add__column-text">
+                        Добавить еще одну колонку
                     </div>
                 </div>
             </div>
