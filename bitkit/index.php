@@ -112,6 +112,21 @@
                 </div>
             </div>
         </div>
+        <div id="popup" class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <div class="popup__close" onclick="popupClose()">
+                        X
+                    </div>
+                    <div class="popup__title">
+                        TITLE
+                    </div>
+                    <div class="popup__text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste repellat laborum nostrum, quos sed ad delectus aut quisquam! Quas magni adipisci ut vel sed, sunt numquam illum dicta architecto ex!
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <?php
     include_once('templates.php');

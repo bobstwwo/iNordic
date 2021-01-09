@@ -30,7 +30,7 @@
     </div>
 </template>
 <template id="simple__card">
-    <div class="card">
+    <div class="card" onclick="clickOnCard(this)">
         <div class="card__top">
         </div>
         <div class="df">

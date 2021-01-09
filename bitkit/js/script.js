@@ -11,6 +11,7 @@ $(document).ready(function () {
     addBtnWithPlus();
 });
 
+//СДЕЛАТЬ КАРТОЧКИ И СПИСКИ СОРТИРУЕМЫМИ
 function makeSortable() {
     $('.cards').sortable({
         connectWith: ".cards",
@@ -24,11 +25,12 @@ function makeSortable() {
         revert: true,
         scrollSpeed: 10000,
         cursor: "move",
-        tolerance: "pointer",
-        handle: ".column__top"
+        tolerance: "pointer"
+        // handle: ".column__top"
     });
 };
 
+//ДОБАВЛЕНИЕ К СПИСКУ КНОПКУ ДОБАВИТЬ КАРТОЧКУ
 function addBtnWithPlus() {
     let with__plus = document.getElementById('with__plus').innerHTML;
     let element = document.getElementsByClassName('cards');
@@ -43,6 +45,7 @@ function addBtnWithPlus() {
     }
 }
 
+//АВТОИЗМЕНЕНИЕ РАЗМЕРА TEXTARE
 function makeAutoSize() {
     autosize(document.getElementsByClassName("autosize"));
 };
@@ -122,3 +125,13 @@ function addColumn(el) {
         }
     });
 };
+
+//POP-UP MENU ПРИ КЛИКЕ НА КАРТОЧКУ
+function clickOnCard(el) {
+    $('.popup').addClass('popup__open');
+
+};
+function popupClose() {
+    $('.popup').removeClass('popup__open');
+};
+
