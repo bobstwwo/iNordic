@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="templates.html">
     <title>Trello</title>
+    <!-- FONTS -->
 </head>
 
 <body>
@@ -67,7 +68,7 @@
                         </div>
                     </div>
                     <div class="cards">
-                        <div class="card">
+                        <div class="card" onclick="clickOnCard(this)">
                             <div class="card__top">
                                 <div class="mark">
                                     Companies
@@ -116,13 +117,38 @@
             <div class="popup__body">
                 <div class="popup__content">
                     <div class="popup__close" onclick="popupClose()">
-                        X
+                        <img src="images/cancel.svg" alt="">
                     </div>
-                    <div class="popup__title">
-                        TITLE
+                    <div class="popup__title df">
+                        <div class="popup__title-icon">
+                            <img src="images/top.svg" alt="">
+                        </div>
+                        <div class="popup__title-textarea">
+                            <textarea class="autosize" onclick="this.select()">Название</textarea>
+                        </div>
                     </div>
-                    <div class="popup__text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste repellat laborum nostrum, quos sed ad delectus aut quisquam! Quas magni adipisci ut vel sed, sunt numquam illum dicta architecto ex!
+                    <div class="popup__description">
+                        <div class="popup__description-top df">
+                            <div class="popup__description-top-icon">
+                                <img src="images/product-description.svg" alt="">
+                            </div>
+                            <div class="popup__description-top-text">
+                                Описание
+                            </div>
+                        </div>
+                        <div class="popup__description-bottom">
+                            <div id="desc__area">
+                                <textarea onfocus="focusOnTextarea()" class="autosize" placeholder="Добавить более подробное описание..."></textarea>
+                            </div>
+                            <div class="popup__description-bottom-save">
+                                <div class="save-btn">
+                                    Сохранить
+                                </div>
+                                <div class="cancel-btn">
+                                    <img src="images/cancel.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

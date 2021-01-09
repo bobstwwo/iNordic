@@ -9,13 +9,52 @@ $(document).ready(function () {
     makeSortable();
 
     addBtnWithPlus();
+
+    $('#desc__area textarea').focusout(function () {
+        let simple__textarea = $('#desc__area').html();
+        // скрыть кнопки
+        $('.popup__description-bottom-save').css({ 'display': 'none' });
+
+        // показать начальное, то что с placeholder
+        $('#desc__area').html(simple__textarea);
+    });
 });
+
+function focusOnTextarea() {
+    let simple__textarea = $('#desc__area').html();
+    $('.popup__description-bottom-save').css({ 'display': 'flex' });
+
+    $('.save-btn').click(function (e) {
+        e.preventDefault();
+        let val = $('#desc__area textarea').val();
+        if (val.length > 0) {
+            // отправка данных в бд
+
+            // скрыть кнопки
+            $('.popup__description-bottom-save').css({ 'display': 'none' });
+        }
+        else {
+            // скрыть кнопки
+            $('.popup__description-bottom-save').css({ 'display': 'none' });
+
+            // показать начальное, то что с placeholder
+            $('#desc__area').html(simple__textarea);
+
+            //отправить в бд что ниче нет
+        }
+    });
+    $('.cancel-btn img').click(function (e) {
+        e.preventDefault();
+        // скрыть кнопки
+        $('.popup__description-bottom-save').css({ 'display': 'none' });
+    });
+}
 
 //СДЕЛАТЬ КАРТОЧКИ И СПИСКИ СОРТИРУЕМЫМИ
 function makeSortable() {
     $('.cards').sortable({
         connectWith: ".cards",
-        cursor: "move",
+        // cursor: "move",
         revert: true,
         tolerance: "pointer",
     });
@@ -24,7 +63,7 @@ function makeSortable() {
         connectWith: ".columns",
         revert: true,
         scrollSpeed: 10000,
-        cursor: "move",
+        // cursor: "move",
         tolerance: "pointer"
         // handle: ".column__top"
     });

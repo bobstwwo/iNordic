@@ -307,6 +307,8 @@ textarea:focus {
 //POPUP STYLES
 
 .popup {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue,
+        sans-serif;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -328,7 +330,8 @@ textarea:focus {
     padding: 30px 10px;
 }
 .popup__content {
-    width: 80%;
+    border-radius: 3px;
+    width: 60%;
     background-color: #f4f5f7;
     color: black;
     padding: 30px;
@@ -342,12 +345,17 @@ textarea:focus {
 .popup__open {
     opacity: 1;
     visibility: visible;
-    .popup__content{
+    .popup__content {
         opacity: 1;
         transform: perspective(600px) translate(0px, 0%) rotateX(0deg);
     }
 }
 .popup__close {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     right: 10px;
     top: 10px;
@@ -358,14 +366,110 @@ textarea:focus {
         background-color: #dbdcde;
         cursor: pointer;
     }
-    padding: 4px 9px;
     border-radius: 50%;
+    & img {
+        width: 10px;
+        height: 10px;
+    }
 }
 .popup__title {
+    width: 90%;
     font-size: 40px;
+    font-weight: 500;
     margin-bottom: 0.5em;
+    justify-content: flex-start;
 }
-.popup__text {
+.popup__title-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & img {
+        width: 16px;
+        height: 16px;
+    }
+    margin-right: 8px;
+}
+.popup__title-textarea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    & textarea {
+        width: 100%;
+        padding: 3px 6px;
+        box-sizing: border-box;
+        height: 24px;
+        border: none;
+        outline: none;
+        resize: none;
+        border-radius: 3px;
+        background-color: #f4f5f7;
+        &:focus {
+            background-color: white;
+            border: 1px solid blueviolet;
+        }
+
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+.popup__description-top-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & img {
+        width: 16px;
+        height: 16px;
+    }
+    margin-right: 14px;
+}
+.popup__description-top-text {
+    font-size: 20px;
+    font-weight: 500;
+}
+.popup__description-bottom {
+    margin-top: 10px;
+    & textarea {
+        margin-left: 30px;
+        padding: 6px 4px;
+        border: none;
+        outline: none;
+        resize: none;
+        width: 50%;
+        border-radius: 3px;
+        transition: height 0.2s;
+        background-color: #f4f5f7;
+        &:focus {
+            background-color: white;
+            border: 2px solid blueviolet;
+        }
+    }
+}
+.popup__description-bottom-save {
+    display: none;
+    margin-left: 30px;
+    align-items: center;
+}
+.save-btn {
+    padding: 4px 8px;
+    background-color: #5aad45;
+    margin-right: 10px;
+    box-sizing: border-box;
+    color: white;
+    border-radius: 3px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.cancel-btn {
+    & img {
+        width: 10px;
+        height: 10px;
+        &:hover {
+            filter: invert(0.4);
+            cursor: pointer;
+        }
+    }
 }
 
 /*УНИВЕРСАЛЬНЫЕ СТИЛИ*/
