@@ -10,45 +10,7 @@ $(document).ready(function () {
 
     addBtnWithPlus();
 
-    $('#desc__area textarea').focusout(function () {
-        let simple__textarea = $('#desc__area').html();
-        // скрыть кнопки
-        $('.popup__description-bottom-save').css({ 'display': 'none' });
-
-        // показать начальное, то что с placeholder
-        $('#desc__area').html(simple__textarea);
-    });
 });
-
-function focusOnTextarea() {
-    let simple__textarea = $('#desc__area').html();
-    $('.popup__description-bottom-save').css({ 'display': 'flex' });
-
-    $('.save-btn').click(function (e) {
-        e.preventDefault();
-        let val = $('#desc__area textarea').val();
-        if (val.length > 0) {
-            // отправка данных в бд
-
-            // скрыть кнопки
-            $('.popup__description-bottom-save').css({ 'display': 'none' });
-        }
-        else {
-            // скрыть кнопки
-            $('.popup__description-bottom-save').css({ 'display': 'none' });
-
-            // показать начальное, то что с placeholder
-            $('#desc__area').html(simple__textarea);
-
-            //отправить в бд что ниче нет
-        }
-    });
-    $('.cancel-btn img').click(function (e) {
-        e.preventDefault();
-        // скрыть кнопки
-        $('.popup__description-bottom-save').css({ 'display': 'none' });
-    });
-}
 
 //СДЕЛАТЬ КАРТОЧКИ И СПИСКИ СОРТИРУЕМЫМИ
 function makeSortable() {
@@ -174,3 +136,23 @@ function popupClose() {
     $('.popup').removeClass('popup__open');
 };
 
+//NEW_POPUP 
+function newPopupOpen() {
+    $('.new-popup').addClass('new-popup-open');
+};
+function newPopupClose() {
+    $('.new-popup').removeClass('new-popup-open');
+};
+
+//POPUP_BACK
+function popupBack() {
+    $('.fixed-marks').css({ 'display': 'block' });
+    $('.create__new-mark').css({ 'display': 'none' });
+    $('.new-popup').removeClass('change__popups');
+}
+//Create new mark
+function createMark() {
+    $('.fixed-marks').css({ 'display': 'none' });
+    $('.create__new-mark').css({ 'display': 'block' });
+    $('.new-popup').addClass('change__popups');
+};

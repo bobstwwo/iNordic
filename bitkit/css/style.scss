@@ -438,7 +438,6 @@ textarea:focus {
         width: 50%;
         border-radius: 3px;
         transition: height 0.2s;
-        background-color: #f4f5f7;
         &:focus {
             background-color: white;
             border: 2px solid blueviolet;
@@ -446,9 +445,11 @@ textarea:focus {
     }
 }
 .popup__description-bottom-save {
-    display: none;
+    display: inline-block;
     margin-left: 30px;
-    align-items: center;
+    & div:hover {
+        opacity: 0.8;
+    }
 }
 .save-btn {
     padding: 4px 8px;
@@ -470,6 +471,250 @@ textarea:focus {
             cursor: pointer;
         }
     }
+}
+.popup__marks {
+    padding-left: 29px;
+    box-sizing: border-box;
+}
+.popup__marks-title {
+    margin-bottom: 5px;
+}
+.popup__marks {
+    margin-bottom: 30px;
+}
+.popup-mark {
+    padding: 4px 8px;
+    border-radius: 3px;
+    background-color: yellowgreen;
+    margin: 4px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.popup__marks-container {
+    align-items: center;
+}
+.all-marks {
+    flex-wrap: wrap;
+}
+.add__mark-btn {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px;
+    margin-top: 6px;
+    background-color: #ebecf0;
+    border-radius: 3px;
+    &:hover {
+        cursor: pointer;
+        & img {
+            opacity: 1;
+        }
+    }
+    & img {
+        width: 15px;
+        height: 15px;
+        opacity: 0.5;
+    }
+}
+/*NEW POPUP*/
+
+.new-popup {
+    // display:none;
+    &:hover {
+        cursor: pointer;
+    }
+    position: absolute;
+    top: -15%;
+    left: 26%;
+    height: 129%;
+    width: 284px;
+    background-color: #dbdcde;
+    border-radius: 3px;
+
+    transition: all 0.5s ease 0s;
+    opacity: 0;
+    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+}
+.new-popup-open {
+    opacity: 1;
+    visibility: visible;
+    transform: perspective(600px) translate(0px, 0%) rotateX(0deg);
+}
+.new-popup-top {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 7px 0;
+    // background-color: red;
+    border-radius: 3px;
+    border-bottom: 1px solid rgba($color: #afb0b1, $alpha: 0.5);
+}
+.fixed {
+    position: static;
+}
+.new-popup__close {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    font-size: 16px;
+    color: black;
+    transition: background-color 0.5s;
+    &:hover {
+        background-color: #dbdcde;
+        cursor: pointer;
+    }
+    border-radius: 50%;
+    & img {
+        width: 10px;
+        height: 10px;
+    }
+}
+.new-popup__back {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 16px;
+    color: black;
+    transition: background-color 0.5s;
+    &:hover {
+        background-color: #dbdcde;
+        cursor: pointer;
+    }
+    border-radius: 50%;
+    & img {
+        width: 10px;
+        height: 10px;
+    }
+}
+.new-popup-middle {
+    overflow: auto;
+    margin-top: 8px;
+    height: 76%;
+}
+.middle__item {
+    padding: 2px 8px;
+}
+.middle__item-left {
+    width: 95%;
+    justify-content: space-between;
+    padding: 4px 8px;
+    background-color: yellowgreen;
+    border-radius: 3px;
+    color: white;
+    margin-right: 6px;
+    transition: border-left 0.1s;
+    border-spacing: 7px;
+    &:hover {
+        border-left: 7px solid burlywood;
+    }
+}
+.mark-tick {
+    margin: 0 4px;
+    & img {
+        width: 8px;
+        height: 8px;
+        filter: invert(1);
+    }
+}
+.middle__item-right {
+    width: 36px;
+    height: 30px;
+    transition: background-color 0.8s;
+    &:hover {
+        background-color: #ebecf0;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    & img {
+        width: 12px;
+        height: 12px;
+    }
+    margin-left: 6px;
+}
+.new-popup-bottom {
+    background-color: #ebecf0;
+    margin-top: 20px;
+    border-radius: 3px;
+    display: flex;
+    padding: 4px 0;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        background-color: rgba($color: #ebecf0, $alpha: 0.8);
+    }
+}
+// CREATE NEW POPUP
+.change__popups {
+    height: 284px;
+}
+.new-popup-body {
+    padding: 18px;
+    box-sizing: border-box;
+}
+.new-popup-body-title {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue,
+        sans-serif;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.new-popup-body-input input {
+    outline: none;
+    border: none;
+    padding: 4px 6px;
+    width: 91%;
+    &:focus {
+        border: 1.2px solid blueviolet;
+    }
+    margin-bottom: 16px;
+}
+.new-popup-body-colors {
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    padding: 3px;
+    flex-wrap: wrap;
+}
+.color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & img{
+        width: 9px;
+        height: 12px;
+        filter: invert(1);
+    }
+    width: 43px;
+    height: 27px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    border-radius: 5px;
+    background-color: yellow;
+}
+.new-popup-body-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    margin-top: 16px;
+    background-color: #5aad45;
+    padding: 4px 8px;
+    border-radius: 3px;
+    color: white;
 }
 
 /*УНИВЕРСАЛЬНЫЕ СТИЛИ*/
@@ -498,6 +743,8 @@ textarea:focus {
 }
 
 /*SCROLL BAR*/
+
+// У доски
 .my-board {
     width: 100%;
     height: 83%;
@@ -519,6 +766,7 @@ textarea:focus {
     border-radius: 30px;
 }
 
+// У карточек
 .cards::-webkit-scrollbar-track {
     background-color: #dadae2;
     border-radius: 30px;
@@ -531,6 +779,24 @@ textarea:focus {
 }
 
 .cards::-webkit-scrollbar-thumb {
+    background-color: #c0c4cf;
+    border-radius: 30px;
+}
+
+// У меток в попапе
+
+.new-popup-middle::-webkit-scrollbar-track {
+    background-color: #dadae2;
+    border-radius: 30px;
+}
+
+.new-popup-middle::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f5f5f5;
+    border-radius: 30px;
+}
+
+.new-popup-middle::-webkit-scrollbar-thumb {
     background-color: #c0c4cf;
     border-radius: 30px;
 }
