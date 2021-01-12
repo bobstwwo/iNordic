@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .wrapper {
     max-width: 1280px;
     height: 100vh;
@@ -10,48 +11,53 @@ body {
     align-items: center;
     background-color: #6bb93f;
 }
+
 .form {
     width: 300px;
     background-color: white;
     text-align: center;
     border-radius: 8px;
 }
+
 .title {
     padding: 20px 0;
     box-sizing: border-box;
 }
-.login {
-    padding: 0 0 20px 0;
+
+.login,
+.password,
+.name,
+.surname {
+    padding: 0 0 14px 0;
     box-sizing: border-box;
 }
-.login input,
-.password input {
+
+.form input {
     height: 25px;
     width: 200px;
     outline: none;
-    transition: border 3s;
+    transition: border 0.3s;
+    &:focus {
+        border: 2px solid blueviolet;
+    }
 }
-.login input:focus,
-.password input:focus {
-    border: 2px solid #3b5999;
-}
+
 .button {
     height: 35px;
     width: 210px;
     background-color: #3b5999;
     margin: 20px auto;
     color: white;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border-radius: 4px;
 }
+
 .button:hover {
     cursor: pointer;
 }
+
 .registration {
     margin-bottom: 20px;
 }
-
