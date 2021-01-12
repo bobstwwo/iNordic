@@ -70,11 +70,61 @@ body {
   border-radius: 4px;
 }
 
+.button button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
 .button:hover {
   cursor: pointer;
 }
 
 .registration {
   margin-bottom: 20px;
+}
+
+.registration span {
+  text-decoration: underline;
+  color: #3b5999;
+}
+
+.registration span:hover {
+  cursor: pointer;
+}
+
+#reg {
+  display: none;
+}
+
+.back__to-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 84px;
+  height: 24px;
+  padding: 8px 7px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #3b5999;
+  font-size: 7px;
+  border-radius: 3px;
+  position: relative;
+  left: 105px;
+  top: -15px;
+  color: white;
+}
+
+.back__to-login:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=auth.css.map */
