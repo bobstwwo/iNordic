@@ -10,13 +10,117 @@ $(document).ready(function () {
 
     addBtnWithPlus();
 
+    //Скрывать add-popup menu по умоланию
+    // $('.add__board-popup').css({ 'display': 'none' });
 
+    firstPage();
 
 });
+//ПОЛУЧАЮ TEMPLATES
+let with__textarea = document.getElementById('with__textarea').innerHTML;
+let with__cancel = document.getElementById('with__cancel').innerHTML;
+let with__plus = document.getElementById('with__plus').innerHTML;
+let simple__card = document.getElementById('simple__card').innerHTML;
+let with__plus__another = document.getElementById('with__plus-another').innerHTML;
+let simple__column = document.getElementById('simple__column').innerHTML;
+let add__board = document.getElementById('add__board').innerHTML;
+let new__board = document.getElementById('new__board').innerHTML;
+
+// Создание первой доски или загрузка last board
+function firstPage() {
+    let requestURL = 'http://localhost/iNordic/bitkit/api/response.php';
+    $.ajax({
+        url: requestURL,
+        contentType: 'application/json',
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            if (data[5].length > 0) {
+                // Рисую то что есть
+                showNewBoard();
+            }
+            else {
+                // Создаю доску
+                $('.wrapper').html(add__board);
+            }
+        },
+        error: function (response) {
+            alert('Ошибка в firstPage запросе!');
+        }
+    });
+}
+
+// КНОПКА СОЗДАТЬ ДОСКУ
+function addNewBoard() {
+    let input = $('.add__inner-left-title input').val();
+    let bg_color = $($('.tick-show').parent()).attr('style');
+    bg_color = bg_color.split("'")[1];
+    if (input.length > 0) {
+        const body = {
+            title: input,
+            bg: bg_color
+        }
+        let requestURL = 'http://localhost/iNordic/bitkit/api/add-board.php?data=' + JSON.stringify(body);
+        $.get(requestURL).then(() => {
+            showNewBoard();
+        });
+    }
+    else {
+        alert('Поле ввода не может быть пустым!');
+    }
+}
+// Показать новую доску
+function showNewBoard() {
+    let requestURL = 'http://localhost/iNordic/bitkit/api/show-board.php';
+    $.ajax({
+        url: requestURL,
+        contentType: 'application/json',
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            let account = data[0].charAt(0) + data[1].charAt(0);
+            let result = new__board.replace('${name_surname}', account);
+            result = result.replace('${board_title}', data[2]);
+            document.getElementById('root').innerHTML = result;
+            console.log(data);
+            let bg = "url(" + data[3] + ")";
+            $('#root').css({ 'background-image': bg });
+        },
+        error: function (response) {
+            alert('Ошибка в showNewBoard запросе!');
+        }
+    });
+}
+
+// Закрыть add-popup
+function addPopupClose() {
+    $('.add__board-popup').css({ 'display': 'none' });
+}
+// Показать add-popup
+function addPopupShow() {
+    $('.add__board-popup').css({ 'display': 'flex' });
+    $(document).mouseup(function (e) {
+        var container = $('.add__inner');
+        if (container.has(e.target).length === 0) {
+            $('.add__board-popup').css({ 'display': 'none' });
+        }
+    });
+}
+
+// Показать галочку у bg-image
+function bgImageTick(el) {
+    let all_bg_images = document.getElementsByClassName('bg-image');
+    for (let i = 0; i < all_bg_images.length; i++) {
+        $(all_bg_images[i]).children().removeClass('tick-show');
+    }
+    $(el).children().addClass('tick-show');
+    let bg_img = $(el).css("background-image");
+    $('.add__inner-left').css({ "background-image": bg_img });
+}
 
 //Показать форму регистрации
-function formReg(){
-    $('#login').css({'display':'none'});
+function formReg() {
+    $('#login').css({ 'display': 'none' });
     $('#reg').css({ 'display': 'block' });
 };
 
@@ -59,13 +163,7 @@ function makeAutoSize() {
     autosize(document.getElementsByClassName("autosize"));
 };
 
-//ПОЛУЧАЮ TEMPLATES
-let with__textarea = document.getElementById('with__textarea').innerHTML;
-let with__cancel = document.getElementById('with__cancel').innerHTML;
-let with__plus = document.getElementById('with__plus').innerHTML;
-let simple__card = document.getElementById('simple__card').innerHTML;
-let with__plus__another = document.getElementById('with__plus-another').innerHTML;
-let simple__column = document.getElementById('simple__column').innerHTML;
+
 
 //ДОБАВЛЕНИЕ КАРТОЧКИ
 function addCard(el) {

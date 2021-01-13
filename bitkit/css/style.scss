@@ -65,6 +65,9 @@ textarea:focus {
     height: 16px;
     background-color: #ebecf0;
 }
+.boards {
+    margin-right: 10px;
+}
 .column__top-menu {
     padding: 10px 10px;
     display: flex;
@@ -693,7 +696,7 @@ textarea:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    & img{
+    & img {
         width: 9px;
         height: 12px;
         filter: invert(1);
@@ -717,6 +720,115 @@ textarea:focus {
     color: white;
 }
 
+/*ADD POPUP*/
+.add__board-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: black, $alpha: 1);
+
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    box-sizing: border-box;
+}
+.add__inner {
+    width: 40%;
+    height: 32%;
+    justify-content: space-between;
+    position: relative;
+}
+.add__inner-left {
+    width: 70%;
+    // height: 20%;
+    border-radius: 5px;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.add__inner-left-title {
+    border-radius: 5px;
+    padding: 12px 16px;
+    & input {
+        width: 70%;
+        height: 38px;
+        border: none;
+        outline: none;
+        padding: 4px 8px;
+        border-radius: 3px;
+        background-color: rgba($color: white, $alpha: 0.5);
+        font-size: 20px;
+    }
+}
+.add__board-popup-close {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    & img {
+        width: 8px;
+        height: 8px;
+        filter: invert(1);
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+.add__inner-right {
+    border-radius: 3px;
+    width: 30%;
+    padding: 12px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.bg-image {
+    width: 30%;
+    height: 30%;
+    border-radius: 5px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img {
+        width: 15px;
+        height: 10px;
+        filter: invert(1);
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+.bg-image-tick {
+    display: none;
+}
+.tick-show {
+    display: inline;
+}
+.add__new-board {
+    border-radius: 5px;
+    width: 115px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: yellowgreen;
+    position: absolute;
+    left: 7px;
+    bottom: 7px;
+    transition: background-color 0.2s, opacity 0.3s;
+    &:hover {
+        background-color: rgba($color: yellowgreen, $alpha: 0.7);
+        cursor: pointer;
+    }
+}
+
 /*УНИВЕРСАЛЬНЫЕ СТИЛИ*/
 .df {
     display: flex;
@@ -731,7 +843,7 @@ textarea:focus {
     height: 100vh;
     padding: 6px 12px;
     box-sizing: border-box;
-    background-image: url("../images/bg2.jpg");
+    background-image: url("../images/bg4.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
