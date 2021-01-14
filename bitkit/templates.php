@@ -46,9 +46,9 @@
     </div>
 </template>
 <template id="simple__column">
-    <div class="column">
+    <div class="column" far="${num}">
         <div class="column__top df">
-            <div class="column__top-title">
+            <div class="column__top-title" onclick="changeTitleOfColumn(this)">
                 <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
                 <textarea class="autosize" onclick="this.select()" id="textarea">${text}</textarea>
             </div>
@@ -124,7 +124,7 @@
 <template id="new__board">
     <div class="top df">
         <div class="top-left df">
-            <div class="boards hov">
+            <div class="boards hov" onclick="showListOfBoards()">
                 <img id="header-gif" src="images/header.gif" alt="">
                 <span>Доски</span>
             </div>
@@ -147,6 +147,9 @@
             <div class="account">
                 ${name_surname}
             </div>
+            <div class="logout" onclick="window.location.href=`http://localhost/iNordic/bitkit/logout.php`">
+                <img src="images/logout.svg" alt="">
+            </div>
         </div>
     </div>
     <div class="pre-top df">
@@ -154,8 +157,8 @@
             <img id="dots" src="images/dots.svg" alt="">
             <span>Меню</span>
         </div>
-        <div class="board-title">
-            ${board_title}
+        <div class="board-title" onclick="changeTitleOfBoard()">
+            <input value=" ${board_title}" type="text">
         </div>
         <div class="favorites">
             <img id="star" src="images/star.svg" alt="">
@@ -456,7 +459,7 @@
             </div>
         </div>
     </div>
-    <div class="add__board-popup" style="display: none;">
+    <div class="add__board-popup change__opaciity" style="display: none;">
         <div class="add__inner df">
             <div class="add__inner-left" style="background-image: url('images/bg8.jpg')">
                 <div class="add__inner-left-title">
@@ -498,6 +501,32 @@
             <div class="add__new-board" onclick="addNewBoard()">
                 <span>Создать доску</span>
             </div>
+        </div>
+    </div>
+</template>
+<template id="listof__boards">
+    <div class="list-of-boards">
+        <div class="list-title">
+            <span>Список досок</span>
+        </div>
+        <div id="list-of-board" class="list-of-boards-close" onclick="closeListOfBoards()">
+            <img src=" images/cancel.svg" alt="">
+        </div>
+        <div class="list-all">
+        </div>
+    </div>
+</template>
+<template id="list__item">
+    <div class="list-item df" far="${num}" onclick="showAnotherBoard(this)">
+        <div class="list-item-img df">
+            <img src="${list-bg}" alt="">
+            <div class="list-item-title">
+                ${list_title}
+            </div>
+        </div>
+        <div class="list-item-icons df">
+            <div class="list-cancel"> <img src="images/cancel.svg" alt=""></div>
+            <div class="list-star"><img src="images/star.svg" alt=""></div>
         </div>
     </div>
 </template>

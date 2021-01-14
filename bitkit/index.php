@@ -29,10 +29,11 @@ if (isset($_SESSION['logged_user'])) : ?>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <!-- ПОДКЛЮЧЕНИЕ СКРИПТ-ЗАПРОСА -->
         <script src="js/xhr.js"></script>
-        <!--ПОДКЛЮЧЕНИЕ MAIN JS-->
-        <script src="js/script.js"></script>
         <!-- ПОДКЛЮЧЕНИЕ AUTOSIZE -->
         <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
+        <!--ПОДКЛЮЧЕНИЕ MAIN JS-->
+        <script src="js/script.js"></script>
+
 
     </body>
 
@@ -67,7 +68,7 @@ if (isset($_SESSION['logged_user'])) : ?>
                     //  Все хорошо, логиним пользователя
 
                     $_SESSION['logged_user'] = $user;
-                    file_put_contents('api/data.txt', $user);
+                    file_put_contents('api/data/data.txt', $user);
                     // echo "<div style='color:yellow;'>Вы авторизованы</div><hr>";
                     header("Refresh:0");
                 } else {

@@ -1213,6 +1213,10 @@ textarea:focus {
           box-sizing: border-box;
 }
 
+.change__opaciity {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 .add__inner {
   width: 40%;
   height: 32%;
@@ -1341,6 +1345,178 @@ textarea:focus {
   cursor: pointer;
 }
 
+.logout {
+  width: 30px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 5px;
+  background-color: #a3aaba;
+}
+
+.logout img {
+  width: 20px;
+  height: 20px;
+}
+
+.logout:hover {
+  cursor: pointer;
+}
+
+.board-title input {
+  outline: none;
+  border: none;
+  max-width: 100px;
+  background-color: transparent;
+  color: white;
+}
+
+.to__be-closed {
+  position: relative;
+}
+
+.list-of-boards {
+  z-index: 33;
+  position: absolute;
+  top: 42px;
+  left: 30px;
+  width: 240px;
+  height: 400px;
+  background-color: #f4f5f7;
+  border-radius: 3px;
+}
+
+.list-of-boards:hover {
+  cursor: pointer;
+}
+
+.list-title {
+  margin-top: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: black;
+}
+
+.list-all {
+  margin-top: 2.2%;
+  width: 100%;
+  height: 90%;
+  overflow-y: auto;
+}
+
+.list-item {
+  width: 94.5%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 6px 3px;
+  background-color: #e4e4e4;
+  border-radius: 3px;
+  margin: 3px;
+  opacity: 0.8;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.list-item:hover {
+  opacity: 1;
+}
+
+.list-item:hover .list-item-icons {
+  visibility: visible;
+  opacity: 1;
+}
+
+.list-item-img {
+  width: 60%;
+  height: 35px;
+  margin-right: 5px;
+}
+
+.list-item-img img {
+  width: 32px;
+  height: 32px;
+}
+
+.list-item-title {
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: black;
+  max-width: 62%;
+  height: 100%;
+  font-size: 15px;
+  overflow: hidden;
+}
+
+.list-item-icons {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 10px 0 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.list-item-icons img {
+  width: 10px;
+  height: 10px;
+}
+
+.list-item-icons div {
+  margin-left: 10px;
+}
+
+.list-cancel img {
+  -webkit-transition: width 0.4s, height 0.4s;
+  transition: width 0.4s, height 0.4s;
+}
+
+.list-cancel img:hover {
+  width: 12px;
+  height: 12px;
+}
+
+.list-star img {
+  -webkit-transition: width 0.4s, height 0.4s;
+  transition: width 0.4s, height 0.4s;
+}
+
+.list-star img:hover {
+  width: 12px;
+  height: 12px;
+}
+
+.list-of-boards-close {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+}
+
+.list-of-boards-close img {
+  width: 14px;
+  height: 14px;
+}
+
 /*УНИВЕРСАЛЬНЫЕ СТИЛИ*/
 .df {
   display: -webkit-box;
@@ -1407,6 +1583,22 @@ textarea:focus {
 }
 
 .cards::-webkit-scrollbar-thumb {
+  background-color: #c0c4cf;
+  border-radius: 30px;
+}
+
+.list-all::-webkit-scrollbar-track {
+  background-color: #dadae2;
+  border-radius: 30px;
+}
+
+.list-all::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+  border-radius: 30px;
+}
+
+.list-all::-webkit-scrollbar-thumb {
   background-color: #c0c4cf;
   border-radius: 30px;
 }
