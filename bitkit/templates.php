@@ -30,7 +30,7 @@
     </div>
 </template>
 <template id="simple__card">
-    <div class="card" onclick="clickOnCard(this)">
+    <div class="card" ondblclick="clickOnCard(this)" far="${far}">
         <div class="card__top">
         </div>
         <div class="df">
@@ -57,6 +57,7 @@
             </div>
         </div>
         <div class="cards">
+            simp__card
         </div>
     </div>
 </template>

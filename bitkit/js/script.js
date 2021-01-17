@@ -208,7 +208,51 @@ function formReg() {
 //СДЕЛАТЬ КАРТОЧКИ И СПИСКИ СОРТИРУЕМЫМИ
 function makeSortable() {
     $('.cards').sortable({
+        receive: function (event, ui) {
+            let column = $(this).closest('.column');
+            let columnID = $(column).attr('far');
+            let arrID = [];
+            $(column).find('.card').each(function () {
+                arrID.push($(this).attr('far'));
+            });
+            arrID = arrID.filter(function (e) { return e });
+            const data = {
+                "columnID": columnID,
+                "data": arrID
+            }
+            let requestURL = 'http://localhost/iNordic/bitkit/api/save-position-cards.php';
+            $.ajax({
+                url: requestURL,
+                type: "POST",
+                data: data,
+                success: function (response, textStatus, jqXHR) {
+                }
+            });
+        },
+        remove: function (event, ui) {
+            let column = $(this).closest('.column');
+            let columnID = $(column).attr('far');
+            let arrID = [];
+            $(column).find('.card').each(function () {
+                arrID.push($(this).attr('far'));
+            });
+            const data = {
+                "columnID": columnID,
+                "data": arrID
+            }
+            let requestURL = 'http://localhost/iNordic/bitkit/api/save-position-cards.php';
+            $.ajax({
+                url: requestURL,
+                type: "POST",
+                data: data,
+                success: function (response, textStatus, jqXHR) {
+                }
+            });
+        },
         connectWith: ".cards",
+        beforeStop: function (e) {
+            savePositionCards(this);
+        },
         // cursor: "move",
         revert: true,
         tolerance: "pointer",
@@ -256,13 +300,27 @@ function addCard(el) {
     let text_area = $('.card__text-textarea');
     text_area.focus();
     makeAutoSize();
-
     $('.new__card-btn').click(function (e) {
         e.preventDefault();
+        let id = $(this).parents('.column').attr('far');
         if (text_area.val().length > 0) {
-            let result = simple__card.replace('${text}', text_area.val());
-            $('.new__card-btn').parent().siblings('.cards').append(result);
-            cancel(1);
+            // ЗАПИСЬ В БД
+            let requestURL = 'http://localhost/iNordic/bitkit/api/new-card.php';
+            const data = {
+                "title": text_area.val(),
+                "id": id
+            }
+            $.ajax({
+                url: requestURL,
+                type: "POST",
+                data: data,
+                success: function (response, textStatus, jqXHR) {
+                    let result = simple__card.replace('${text}', text_area.val());
+                    result = result.replace('${far}', response);
+                    $('.new__card-btn').parent().siblings('.cards').append(result);
+                    cancel(1);
+                }
+            });
         }
         else {
             text_area.focus();
@@ -379,20 +437,84 @@ function drawSavedColumns() {
         type: "GET",
         dataType: "json",
         success: function (data) {
-            console.log();
-            for (let i = 0; i < data.length; i++) {
-                let result = simple__column.replace('${text}', data[i][1]);
-                result = result.replace('${num}', data[i][0]);
-                $('.add__column').before(result);
+            let all_cards = "";
+            for (let index = 0; index < Object.keys(data).length; index++) {
+                if (data[index][2] == "") {
+                    all_cards += data[index][2];
+                } else {
+                    all_cards += data[index][2];
+                    all_cards += ",";
+                }
             }
-            makeSortable();
-            addBtnWithPlus();
+            if (all_cards == "") {
+                for (let i = 0; i < data.length; i++) {
+                    let result = simple__column.replace('${text}', data[i][1]);
+                    result = result.replace('${num}', data[i][0]);
+                    result = result.replace(/simp__card/i, '');
+                    $('.add__column').before(result);
+                }
+                makeSortable();
+                addBtnWithPlus();
+                // drawWithoutCards(data);
+            } else {
+                drawSavedCards(all_cards).then((cards) => {
+                    let f_data = JSON.parse(cards);
+                    let count = 0;
+                    for (let i = 0; i < Object.keys(data).length; i++) {
+                        let result = simple__column.replace('${text}', data[i][1]);
+                        result = result.replace('${num}', data[i][0]);
+                        let cards_of_one_column = ' ';
+                        let str = data[i][2].split(',');
+                        if (str == '') {
+                            let result = simple__column.replace('${text}', data[i][1]);
+                            result = result.replace('${num}', data[i][0]);
+                            result = result.replace(/simp__card/i, '');
+                            $('.add__column').before(result);
+                            makeSortable();
+                            addBtnWithPlus();
+                        } else {
+                            for (let j = 0; j < str.length; j++) {
+                                let card_id = f_data[count][0];
+                                let card_title = f_data[count][1];
+                                let card_desc = f_data[count][2];
+                                let card_marks = f_data[count][3];
+                                let simp_card = simple__card.replace('${far}', card_id);
+                                simp_card = simp_card.replace('${text}', card_title);
+                                cards_of_one_column += simp_card;
+                                count++;
+                            }
+                            result = result.replace(/simp__card/i, cards_of_one_column);
+                            // ВЫВОД
+                            $('.add__column').before(result);
+                            makeSortable();
+                            addBtnWithPlus();
+                        }
+                    }
+                })
+            }
         },
         error: function (response) {
             alert('Ошибка в drawSavedColumns запросе!');
             console.log(response);
         }
     });
+}
+// ОТРИСОВКА УЖЕ ИМЕЮЩИХСЯ КАРТОЧЕК
+function drawSavedCards(cards) {
+    return new Promise((resolve, reject) => {
+        let requestURL = 'http://localhost/iNordic/bitkit/api/draw-saved-cards.php';
+        const data = {
+            "cards": cards
+        }
+        $.ajax({
+            url: requestURL,
+            type: "POST",
+            data: data,
+            success: function (response, textStatus, jqXHR) {
+                resolve(response);
+            }
+        });
+    })
 }
 
 //ОТРИСОВКА ПОСЛЕДНЕДОБАВЛЕННОЙ КОЛОНИК
@@ -406,6 +528,7 @@ function drawLastSavedColumn() {
         success: function (data) {
             let result = simple__column.replace('${text}', data[1]);
             result = result.replace('${num}', data[0]);
+            result = result.replace(/simp__card/i, '');
             $('.add__column').before(result);
             makeSortable();
             addBtnWithPlus();
@@ -454,7 +577,40 @@ function savePositionColumn(e) {
     for (let i = 0; i < arr.length; i++) {
         arrID.push($(arr[i]).attr('far'));
     }
-    arrID = arrID.filter(function(e){return e}); 
-    console.log(arrID);
+    arrID = arrID.filter(function (e) { return e });
+    const data = {
+        "data": arrID
+    }
+    let requestURL = 'http://localhost/iNordic/bitkit/api/save-position-columns.php';
+    $.ajax({
+        url: requestURL,
+        type: "POST",
+        data: data,
+        success: function (response, textStatus, jqXHR) {
+            console.log(response);
+        }
+    });
+}
+// Сохранение расположения карточек
+function savePositionCards(el) {
+    let column = $(el).closest('.column');
+    let columnID = $(column).attr('far');
+    let arrID = [];
+    $(column).find('.card').each(function () {
+        arrID.push($(this).attr('far'));
+    });
+    arrID = arrID.filter(function (e) { return e });
+    const data = {
+        "columnID": columnID,
+        "data": arrID
+    }
+    let requestURL = 'http://localhost/iNordic/bitkit/api/save-position-cards.php';
+    $.ajax({
+        url: requestURL,
+        type: "POST",
+        data: data,
+        success: function (response, textStatus, jqXHR) {
+        }
+    });
 }
 
