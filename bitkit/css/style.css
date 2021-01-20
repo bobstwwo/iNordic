@@ -751,6 +751,7 @@ textarea:focus {
 
 .popup__title-textarea textarea {
   width: 100%;
+  height: 33px;
   padding: 3px 6px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -864,7 +865,6 @@ textarea:focus {
 .popup-mark {
   padding: 4px 8px;
   border-radius: 3px;
-  background-color: yellowgreen;
   margin: 4px;
 }
 
@@ -1026,7 +1026,7 @@ textarea:focus {
 .new-popup-middle {
   overflow: auto;
   margin-top: 8px;
-  height: 76%;
+  height: 54vh;
 }
 
 .middle__item {
@@ -1039,13 +1039,11 @@ textarea:focus {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 4px 8px;
-  background-color: yellowgreen;
   border-radius: 3px;
   color: white;
   margin-right: 6px;
   -webkit-transition: border-left 0.1s;
   transition: border-left 0.1s;
-  border-spacing: 7px;
 }
 
 .middle__item-left:hover {

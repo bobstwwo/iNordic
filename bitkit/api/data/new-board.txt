@@ -1,1 +1,1 @@
-{"title":"MAAAAAAP","bg":"images/bg8.jpg"}
+{"title":"Привет","bg":"images/bg8.jpg"}

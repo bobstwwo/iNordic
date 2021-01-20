@@ -25,6 +25,11 @@ let add__board = document.getElementById('add__board').innerHTML;
 let new__board = document.getElementById('new__board').innerHTML;
 let listof__boards = document.getElementById('listof__boards').innerHTML;
 let list__item = document.getElementById('list__item').innerHTML;
+let popup__main = document.getElementById('popup__main').innerHTML;
+let card__desc = document.getElementById('card__desc').innerHTML;
+let mark_in_list = document.getElementById('mark_in_list').innerHTML;
+let mark__tick = document.getElementById('mark__tick').innerHTML;
+let popup__mark = document.getElementById('popup__mark').innerHTML;
 let wrapper;
 // Измение названия доски
 function changeTitleOfBoard() {
@@ -41,9 +46,6 @@ function changeTitleOfBoard() {
                 type: "POST",
                 data: data,
                 success: function (response, textStatus, jqXHR) {
-                    console.log(response);
-                    console.log(textStatus);
-                    console.log(jqXHR);
                 }
             });
         }
@@ -317,6 +319,7 @@ function addCard(el) {
                 success: function (response, textStatus, jqXHR) {
                     let result = simple__card.replace('${text}', text_area.val());
                     result = result.replace('${far}', response);
+                    result = result.replace(/icon/i, '');
                     $('.new__card-btn').parent().siblings('.cards').append(result);
                     cancel(1);
                 }
@@ -400,8 +403,37 @@ function saveNewColumn(text) {
 
 //POP-UP MENU ПРИ КЛИКЕ НА КАРТОЧКУ
 function clickOnCard(el) {
-    $('.popup').addClass('popup__open');
-
+    makeAutoSize();
+    let t = $(el).attr('far');
+    let requestURL = 'http://localhost/iNordic/bitkit/api/get-card-info.php';
+    const data = {
+        "id": t
+    }
+    $.ajax({
+        url: requestURL,
+        type: "POST",
+        data: data,
+        success: function (response, textStatus, jqXHR) {
+            let f_data = JSON.parse(response);
+            let result = popup__main.replace('${title}', f_data[1]);
+            if (f_data[2] != null) {
+                result = result.replace('${desc}', f_data[2]);
+            }
+            else {
+                result = result.replace('${desc}', '');
+            }
+            $('.popup__content').html(result);
+            $('.popup').addClass('popup__open');
+            makeAutoSize();
+            let marks = f_data[4];
+            if (marks != null) {
+                const trg = {
+                    marks: marks
+                }
+                showMarksOnPopUp(trg);
+            }
+        }
+    });
 };
 function popupClose() {
     $('.popup').removeClass('popup__open');
@@ -410,6 +442,7 @@ function popupClose() {
 //NEW_POPUP 
 function newPopupOpen() {
     $('.new-popup').addClass('new-popup-open');
+    createMarkCleacked();
 };
 function newPopupClose() {
     $('.new-popup').removeClass('new-popup-open');
@@ -451,11 +484,11 @@ function drawSavedColumns() {
                     let result = simple__column.replace('${text}', data[i][1]);
                     result = result.replace('${num}', data[i][0]);
                     result = result.replace(/simp__card/i, '');
+                    result = result.replace(/icon/i, '');
                     $('.add__column').before(result);
                 }
                 makeSortable();
                 addBtnWithPlus();
-                // drawWithoutCards(data);
             } else {
                 drawSavedCards(all_cards).then((cards) => {
                     let f_data = JSON.parse(cards);
@@ -469,6 +502,7 @@ function drawSavedColumns() {
                             let result = simple__column.replace('${text}', data[i][1]);
                             result = result.replace('${num}', data[i][0]);
                             result = result.replace(/simp__card/i, '');
+                            result = result.replace(/icon/i, '');
                             $('.add__column').before(result);
                             makeSortable();
                             addBtnWithPlus();
@@ -476,10 +510,17 @@ function drawSavedColumns() {
                             for (let j = 0; j < str.length; j++) {
                                 let card_id = f_data[count][0];
                                 let card_title = f_data[count][1];
-                                let card_desc = f_data[count][2];
+                                let card_descT = f_data[count][2];
                                 let card_marks = f_data[count][3];
+                                console.log(card_marks);
                                 let simp_card = simple__card.replace('${far}', card_id);
                                 simp_card = simp_card.replace('${text}', card_title);
+                                if (card_descT != null) {
+                                    simp_card = simp_card.replace(/icon/i, card__desc);
+                                }
+                                else {
+                                    simp_card = simp_card.replace(/icon/i, '');
+                                }
                                 cards_of_one_column += simp_card;
                                 count++;
                             }
@@ -558,9 +599,6 @@ function changeTitleOfColumn(el) {
                 type: "POST",
                 data: data,
                 success: function (response, textStatus, jqXHR) {
-                    console.log(response);
-                    console.log(textStatus);
-                    console.log(jqXHR);
                 }
             });
         }
@@ -587,7 +625,6 @@ function savePositionColumn(e) {
         type: "POST",
         data: data,
         success: function (response, textStatus, jqXHR) {
-            console.log(response);
         }
     });
 }
@@ -613,4 +650,215 @@ function savePositionCards(el) {
         }
     });
 }
+// Измение названия карточки
+function changeTitleOfCard() {
+    $('.popup__title-textarea textarea').on('change', function () {
+        let title = $(this).val();
+        if (title.length > 0) {
+            let requestURL = 'http://localhost/iNordic/bitkit/api/change-title-card.php';
+            const data = {
+                "title": title
+            }
+            $.ajax({
+                url: requestURL,
+                type: "POST",
+                data: data,
+                success: function (response) {
+                    let id = JSON.parse(response);
+                    let card = $("div").find(`[far='${id}']`)
+                    let f_card = null;
+                    for (let i = 0; i < card.length; i++) {
+                        if ($(card[i]).hasClass('card')) {
+                            f_card = card[i];
+                        }
+                    }
+                    let r = f_card.querySelectorAll('.card__text span');
+                    $(r).html(title);
+                }
+            });
+        }
+        else {
+            alert('Поле ввода не может быть пустым!');
+        }
+    });
+}
+// Добавить комментарий
+function addComment() {
+    let text = $('#desc__area textarea').val();
+    if (text.length > 0) {
 
+        let requestURL = 'http://localhost/iNordic/bitkit/api/add-comment.php';
+        const data = {
+            "text": text
+        }
+        $.ajax({
+            url: requestURL,
+            type: "POST",
+            data: data,
+            success: function (response) {
+                let id = JSON.parse(response);
+                let card = $("div").find(`[far='${id}']`)
+                let f_card = null;
+                for (let i = 0; i < card.length; i++) {
+                    if ($(card[i]).hasClass('card')) {
+                        f_card = card[i];
+                    }
+                }
+                if (!(f_card.innerHTML).includes('card__bottom')) {
+                    $(f_card).html(f_card.innerHTML + card__desc);
+                }
+                popupClose();
+            }
+        });
+    } else {
+        alert('Поле ввода не может быть пустым!');
+    }
+}
+
+// ВЫбор цвета метки
+function colorClick(el) {
+    let tick = '<img id="m-ticked" src="images/tick.svg" alt="">';
+    let arr = document.getElementsByClassName('color');
+    for (let index = 0; index < arr.length; index++) {
+        $(arr[index]).html('');
+    }
+    // tick ставим
+    $(el).html(tick);
+}
+
+// Создание новой метки
+function newMark() {
+    let val = $('.new-popup-body-input input').val();
+    if (val.length > 0) {
+        let color = '';
+        let t = document.getElementById('m-ticked');
+        color = $(t).closest('.color').css("background-color");
+
+        const r4 = {
+            "color": color,
+            "text": val
+        }
+        $.ajax({
+            url: 'http://localhost/iNordic/bitkit/api/add-new-mark.php',
+            type: "POST",
+            data: r4,
+            dataType: 'json',
+            success: function (t5y) {
+                popupBack();
+                createMarkCleacked();
+            },
+            error: function (response) {
+                alert('Ошибка в newMark запросе!');
+                console.log(response);
+            }
+        });
+    } else {
+        alert('Поле ввода не может быть пустым!');
+    }
+}
+
+// Вывод списка меток
+function createMarkCleacked() {
+    let requestURL = 'http://localhost/iNordic/bitkit/api/get-all-marks.php';
+    $.ajax({
+        url: requestURL,
+        contentType: 'application/json',
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            data.reverse();
+            let ticked = data[0];
+            let all_marks = '';
+            for (let i = 1; i < Object.keys(data).length; i++) {
+                let result = mark_in_list.replace('${title}', data[i][2]);
+                result = result.replace('${color}', data[i][1]);
+                result = result.replace('${far}', data[i][0]);
+                if (ticked.includes(data[i][0])) {
+                    result = result.replace(/tick/i, mark__tick);
+                }
+                else {
+                    result = result.replace(/tick/i, '');
+                }
+                all_marks += result;
+            }
+            document.getElementById('new-popup-middle').innerHTML = all_marks;
+        },
+        error: function (response) {
+            alert('Ошибка в newPopupOpen запросе!');
+            console.log(response);
+        }
+    });
+}
+
+// Клик на метку в списке
+function clickOnMarkInList(obj) {
+    let count = $(obj).find('div').length;
+    let farFrom = $(obj).parent().attr('farFrom');
+    if (count == 1) {
+        // Ставим галочку
+        obj.innerHTML += mark__tick;
+        funcHelder(farFrom, 'add');
+    } else {
+        // Убираем галочку
+        let childs = $(obj).find('div');
+        $(childs).last('div').remove();
+        funcHelder(farFrom, 'remove');
+    }
+}
+function funcHelder(farFrom, text) {
+    let requestURL = 'http://localhost/iNordic/bitkit/api/get-card-info.php';
+    return $.ajax({
+        url: requestURL,
+        type: "POST",
+        dataType: "json",
+        success: function (response) {
+            let ticked = $(response).last()[0];
+            if (text == 'add') {
+                let tez = ticked += "," + farFrom;
+                let data = {
+                    "marks": tez,
+                }
+                showMarksOnPopUp(data);
+            } else {
+                let arr = ticked.split(',');
+                let filteredArr = arr.filter(function (e) { return e !== farFrom });
+                let str = '';
+                for (let i = 0; i < filteredArr.length; i++) {
+                    if (i + 1 == filteredArr.length) {
+                        str += filteredArr[i];
+                    }
+                    else {
+                        str += filteredArr[i] + ",";
+                    }
+                }
+                console.log(str);
+                let data = {
+                    "marks": str,
+                }
+                showMarksOnPopUp(data);
+            }
+        }
+    });
+}
+
+
+// Метод отрисовки меток при клике на карто в сплывающем окне
+function showMarksOnPopUp(trg) {
+    $.ajax({
+        url: 'http://localhost/iNordic/bitkit/api/get-marks-with-tick.php',
+        type: "POST",
+        data: trg,
+        success: function (re) {
+            let n_data = JSON.parse(re);
+            let ticked_marks_to_show = ' ';
+            for (let q = 0; q < Object.keys(n_data).length; q++) {
+                let rep = popup__mark.replace('${title}', n_data[q][2]);
+                rep = rep.replace('${color}', n_data[q][1]);
+
+                ticked_marks_to_show += rep;
+            }
+            document.querySelectorAll('.popup-mark').forEach(e => e.remove());
+            $("#add__mark-btn").before(ticked_marks_to_show);
+        }
+    });
+}

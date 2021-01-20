@@ -399,6 +399,7 @@ textarea:focus {
     width: 100%;
     & textarea {
         width: 100%;
+        height: 33px;
         padding: 3px 6px;
         box-sizing: border-box;
         height: 24px;
@@ -488,7 +489,6 @@ textarea:focus {
 .popup-mark {
     padding: 4px 8px;
     border-radius: 3px;
-    background-color: yellowgreen;
     margin: 4px;
     &:hover {
         cursor: pointer;
@@ -605,7 +605,7 @@ textarea:focus {
 .new-popup-middle {
     overflow: auto;
     margin-top: 8px;
-    height: 76%;
+    height: 54vh;
 }
 .middle__item {
     padding: 2px 8px;
@@ -614,12 +614,10 @@ textarea:focus {
     width: 95%;
     justify-content: space-between;
     padding: 4px 8px;
-    background-color: yellowgreen;
     border-radius: 3px;
     color: white;
     margin-right: 6px;
     transition: border-left 0.1s;
-    border-spacing: 7px;
     &:hover {
         border-left: 7px solid burlywood;
     }
@@ -861,7 +859,7 @@ textarea:focus {
 }
 
 // КНОПКА ДОСКИ
-.to__be-closed{
+.to__be-closed {
     position: relative;
 }
 .list-of-boards {
@@ -873,7 +871,7 @@ textarea:focus {
     height: 400px;
     background-color: rgba($color: #f4f5f7, $alpha: 1);
     border-radius: 3px;
-    &:hover{
+    &:hover {
         cursor: pointer;
     }
 }
@@ -958,11 +956,11 @@ textarea:focus {
         }
     }
 }
-.list-of-boards-close{
+.list-of-boards-close {
     position: absolute;
     top: 10px;
     right: 13px;
-    & img{
+    & img {
         width: 14px;
         height: 14px;
     }

@@ -32,6 +32,7 @@
 <template id="simple__card">
     <div class="card" ondblclick="clickOnCard(this)" far="${far}">
         <div class="card__top">
+            mark
         </div>
         <div class="df">
             <div class="card__text">
@@ -43,6 +44,7 @@
                 <img src="images/pencil.svg" alt="">
             </div>
         </div>
+        icon
     </div>
 </template>
 <template id="simple__column">
@@ -184,279 +186,7 @@
     <div id="popup" class="popup">
         <div class="popup__body">
             <div class="popup__content">
-                <div class="popup__close" onclick="popupClose()">
-                    <img src="images/cancel.svg" alt="">
-                </div>
-                <div class="popup__title df">
-                    <div class="popup__title-icon">
-                        <img src="images/top.svg" alt="">
-                    </div>
-                    <div class="popup__title-textarea">
-                        <textarea class="autosize" onclick="this.select()">Название</textarea>
-                    </div>
-                </div>
-                <div class="popup__marks">
-                    <div class="popup__marks-title">
-                        Метки
-                    </div>
-                    <div class="popup__marks-container df">
-                        <div class="all-marks df">
-                            <div class="popup-mark">
-                                Employers
-                            </div>
-                            <div class="popup-mark">
-                                Employers
-                            </div>
-                            <div class="popup-mark">
-                                Employers
-                            </div>
-                            <div class="popup-mark">
-                                Employers
-                            </div>
-                            <div class="popup-mark">
-                                Employers
-                            </div>
-                            <div class="popup-mark">
-                                Employers
-                            </div>
-                            <div class="popup-mark">
-                                Employers
-                            </div>
-                            <div class="popup-mark">
-                                E
-                            </div>
-                            <div class="add__mark-btn" onclick="newPopupOpen();">
-                                <img src="images/plus.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-popup">
-                        <div class="fixed-marks">
-                            <div class="new-popup-top">
-                                <div class="fixed">
-                                    <div class="new-popup-top-title">
-                                        Метки
-                                    </div>
-                                    <div class="new-popup__close">
-                                        <img src="images/cancel.svg" alt="" onclick="newPopupClose()">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="new-popup-middle">
-                                <div class="middle__item df">
-                                    <div class="middle__item-left df">
-                                        <div class="mark-text">
-                                            Video
-                                        </div>
-                                        <div class="mark-tick">
-                                            <img src="images/tick.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="middle__item-right">
-                                        <img src="images/pencil.svg" alt="">
-                                    </div>
-                                </div>
-                                <div class="middle__item df">
-                                    <div class="middle__item-left df">
-                                        <div class="mark-text">
-                                            Video
-                                        </div>
-                                        <div class="mark-tick">
-                                            <img src="images/tick.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="middle__item-right">
-                                        <img src="images/pencil.svg" alt="">
-                                    </div>
-                                </div>
-                                <div class="middle__item df">
-                                    <div class="middle__item-left df">
-                                        <div class="mark-text">
-                                            Video
-                                        </div>
-                                        <div class="mark-tick">
-                                            <img src="images/tick.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="middle__item-right">
-                                        <img src="images/pencil.svg" alt="">
-                                    </div>
-                                </div>
-                                <div class="middle__item df">
-                                    <div class="middle__item-left df">
-                                        <div class="mark-text">
-                                            Video
-                                        </div>
-                                        <div class="mark-tick">
-                                            <img src="images/tick.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="middle__item-right">
-                                        <img src="images/pencil.svg" alt="">
-                                    </div>
-                                </div>
-                                <div class="middle__item df">
-                                    <div class="middle__item-left df">
-                                        <div class="mark-text">
-                                            Video
-                                        </div>
-                                        <div class="mark-tick">
-                                            <img src="images/tick.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="middle__item-right">
-                                        <img src="images/pencil.svg" alt="">
-                                    </div>
-                                </div>
-                                <div class="middle__item df">
-                                    <div class="middle__item-left df">
-                                        <div class="mark-text">
-                                            Video
-                                        </div>
-                                        <div class="mark-tick">
-                                            <img src="images/tick.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="middle__item-right">
-                                        <img src="images/pencil.svg" alt="">
-                                    </div>
-                                </div>
-                                <div class="middle__item df">
-                                    <div class="middle__item-left df">
-                                        <div class="mark-text">
-                                            Video
-                                        </div>
-                                        <div class="mark-tick">
-                                            <img src="images/tick.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="middle__item-right">
-                                        <img src="images/pencil.svg" alt="">
-                                    </div>
-                                </div>
-                                <div class="middle__item df">
-                                    <div class="middle__item-left df">
-                                        <div class="mark-text">
-                                            Video
-                                        </div>
-                                        <div class="mark-tick">
-                                            <img src="images/tick.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="middle__item-right">
-                                        <img src="images/pencil.svg" alt="">
-                                    </div>
-                                </div>
-                                <div class="middle__item df">
-                                    <div class="middle__item-left df">
-                                        <div class="mark-text">
-                                            Video
-                                        </div>
-                                        <div class="mark-tick">
-                                            <img src="images/tick.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="middle__item-right">
-                                        <img src="images/pencil.svg" alt="">
-                                    </div>
-                                </div>
-                                <div class="middle__item df">
-                                    <div class="middle__item-left df">
-                                        <div class="mark-text">
-                                            Video
-                                        </div>
-                                        <div class="mark-tick">
-                                            <img src="images/tick.svg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="middle__item-right">
-                                        <img src="images/pencil.svg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="new-popup-bottom" onclick="createMark()">
-                                <span>Создать новую метку</span>
-                            </div>
-                        </div>
-                        <div class="create__new-mark" style="display: none;">
-                            <div class="new-popup-top">
-                                <div class="fixed">
-                                    <div class="new-popup-top-title">
-                                        Создание метки
-                                    </div>
-                                    <!-- Кнопку закрыть расположил обсолютно -->
-                                    <div class="new-popup__close">
-                                        <img src="images/cancel.svg" alt="" onclick="newPopupClose()">
-                                    </div>
-                                    <!-- Кнопку обратно расположил обсолютно -->
-                                    <div class="new-popup__back">
-                                        <img src="images/back.svg" alt="" onclick="popupBack()">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="new-popup-body">
-                                <div class="new-popup-body-title">Название</div>
-                                <div class="new-popup-body-input"><input type="text"></div>
-                                <div class="new-popup-body-title">Цвет</div>
-                                <div class="new-popup-body-colors df">
-                                    <div class="color" style="background-color: #61bd50;">
-                                        <img src="images/tick.svg" alt="">
-                                    </div>
-                                    <div class="color" style="background-color: #f1d600;">
-                                        <img src="images/tick.svg" alt="">
-                                    </div>
-                                    <div class="color" style="background-color: #ff9f1a;">
-                                        <img src="images/tick.svg" alt="">
-                                    </div>
-                                    <div class="color" style="background-color: #eb5a47;">
-                                        <img src="images/tick.svg" alt="">
-                                    </div>
-                                    <div class="color" style="background-color: #c378e1;">
-                                        <img src="images/tick.svg" alt="">
-                                    </div>
-                                    <div class="color" style="background-color: #0079be;">
-                                        <img src="images/tick.svg" alt="">
-                                    </div>
-                                    <div class="color" style="background-color: #00c1e0;">
-                                        <img src="images/tick.svg" alt="">
-                                    </div>
-                                    <div class="color" style="background-color: #51e897;">
-                                        <img src="images/tick.svg" alt="">
-                                    </div>
-                                    <div class="color" style="background-color: #ff78cc;">
-                                        <img src="images/tick.svg" alt="">
-                                    </div>
-                                    <div class="color" style="background-color: #344563;">
-                                        <img src="images/tick.svg" alt="">
-                                    </div>
-                                </div>
-                                <div class="new-popup-body-btn">
-                                    <span>Создать</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="popup__description">
-                    <div class="popup__description-top df">
-                        <div class="popup__description-top-icon">
-                            <img src="images/product-description.svg" alt="">
-                        </div>
-                        <div class="popup__description-top-text">
-                            Описание
-                        </div>
-                    </div>
-                    <div class="popup__description-bottom">
-                        <div id="desc__area">
-                            <textarea class="autosize" placeholder="Добавить более подробное описание..."></textarea>
-                        </div>
-                        <div class="popup__description-bottom-save">
-                            <div class="save-btn">
-                                Сохранить
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -529,5 +259,147 @@
             <div class="list-cancel"> <img src="images/cancel.svg" alt=""></div>
             <div class="list-star"><img src="images/star.svg" alt=""></div>
         </div>
+    </div>
+</template>
+<template id="popup__main">
+    <div class="popup__close" onclick="popupClose()">
+        <img src="images/cancel.svg" alt="">
+    </div>
+    <div class="popup__title df">
+        <div class="popup__title-icon">
+            <img src="images/top.svg" alt="">
+        </div>
+        <div class="popup__title-textarea" onclick="changeTitleOfCard()">
+            <textarea class="autosize" onclick="this.select()">${title}</textarea>
+        </div>
+    </div>
+    <div class="popup__marks">
+        <div class="popup__marks-title">
+            Метки
+        </div>
+        <div class="popup__marks-container df">
+            <div class="all-marks df">
+
+                <div id="add__mark-btn" class="add__mark-btn" onclick="newPopupOpen();">
+                    <img src="images/plus.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="new-popup">
+            <div class="fixed-marks">
+                <div class="new-popup-top">
+                    <div class="fixed">
+                        <div class="new-popup-top-title">
+                            Метки
+                        </div>
+                        <div class="new-popup__close">
+                            <img src="images/cancel.svg" alt="" onclick="newPopupClose()">
+                        </div>
+                    </div>
+                </div>
+                <div id="new-popup-middle" class="new-popup-middle">
+                </div>
+                <div class="new-popup-bottom" onclick="createMark()">
+                    <span>Создать новую метку</span>
+                </div>
+            </div>
+            <div class="create__new-mark" style="display: none;">
+                <div class="new-popup-top">
+                    <div class="fixed">
+                        <div class="new-popup-top-title">
+                            Создание метки
+                        </div>
+                        <!-- Кнопку закрыть расположил обсолютно -->
+                        <div class="new-popup__close">
+                            <img src="images/cancel.svg" alt="" onclick="newPopupClose()">
+                        </div>
+                        <!-- Кнопку обратно расположил обсолютно -->
+                        <div class="new-popup__back">
+                            <img src="images/back.svg" alt="" onclick="popupBack()">
+                        </div>
+                    </div>
+                </div>
+                <div class="new-popup-body">
+                    <div class="new-popup-body-title">Название</div>
+                    <div class="new-popup-body-input"><input type="text"></div>
+                    <div class="new-popup-body-title">Цвет</div>
+                    <div class="new-popup-body-colors df">
+                        <div onclick="colorClick(this)" class="color" style="background-color: #61bd50;">
+                            <img id="m-ticked" src="images/tick.svg" alt="">
+                        </div>
+                        <div onclick="colorClick(this)" class="color" style="background-color: #f1d600;">
+                        </div>
+                        <div onclick="colorClick(this)" class="color" style="background-color: #ff9f1a;">
+                        </div>
+                        <div onclick="colorClick(this)" class="color" style="background-color: #eb5a47;">
+                        </div>
+                        <div onclick="colorClick(this)" class="color" style="background-color: #c378e1;">
+                        </div>
+                        <div onclick="colorClick(this)" class="color" style="background-color: #0079be;">
+                        </div>
+                        <div onclick="colorClick(this)" class="color" style="background-color: #00c1e0;">
+                        </div>
+                        <div onclick="colorClick(this)" class="color" style="background-color: #51e897;">
+                        </div>
+                        <div onclick="colorClick(this)" class="color" style="background-color: #ff78cc;">
+                        </div>
+                        <div onclick="colorClick(this)" class="color" style="background-color: #344563;">
+                        </div>
+                    </div>
+                    <div class="new-popup-body-btn" onclick="newMark()">
+                        <span>Создать</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup__description">
+        <div class="popup__description-top df">
+            <div class="popup__description-top-icon">
+                <img src="images/product-description.svg" alt="">
+            </div>
+            <div class="popup__description-top-text">
+                Описание
+            </div>
+        </div>
+        <div class="popup__description-bottom">
+            <div id="desc__area">
+                <textarea class="autosize" placeholder="Добавить более подробное описание...">${desc}</textarea>
+            </div>
+            <div class="popup__description-bottom-save">
+                <div class="save-btn" onclick="addComment()">
+                    Сохранить
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="card__desc">
+    <div class="card__bottom">
+        <img class="forhover" src="images/product-description.svg" alt="">
+        <p style="display:none" class="hint">Эта карточка с описанием.</p>
+    </div>
+</template>
+<template id="mark_in_list">
+    <div class="middle__item df" farFrom="${far}">
+        <div onclick="clickOnMarkInList(this)" class="middle__item-left df" style="background-color: ${color};">
+            <div class="mark-text">
+                ${title}
+            </div>
+            tick
+        </div>
+        <div class="middle__item-right">
+            <img src="images/pencil.svg" alt="">
+        </div>
+    </div>
+</template>
+<template id="mark__tick">
+    <div class="mark-tick">
+        <img src="images/tick.svg" alt="">
+    </div>
+</template>
+<template id="popup__mark">
+    <div class="popup-mark" style="background-color: ${color};">
+        ${title}
     </div>
 </template>
