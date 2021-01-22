@@ -403,3 +403,8 @@
         ${title}
     </div>
 </template>
+<template id="mark__to__card">
+    <div class="mark" style="background-color: ${color};">
+       text-for-card
+    </div>
+</template>

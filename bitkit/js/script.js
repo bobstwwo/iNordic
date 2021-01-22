@@ -30,6 +30,7 @@ let card__desc = document.getElementById('card__desc').innerHTML;
 let mark_in_list = document.getElementById('mark_in_list').innerHTML;
 let mark__tick = document.getElementById('mark__tick').innerHTML;
 let popup__mark = document.getElementById('popup__mark').innerHTML;
+let mark__to__card = document.getElementById('mark__to__card').innerHTML;
 let wrapper;
 // Измение названия доски
 function changeTitleOfBoard() {
@@ -320,6 +321,7 @@ function addCard(el) {
                     let result = simple__card.replace('${text}', text_area.val());
                     result = result.replace('${far}', response);
                     result = result.replace(/icon/i, '');
+                    result = result.replace(/mark/i, '');
                     $('.new__card-btn').parent().siblings('.cards').append(result);
                     cancel(1);
                 }
@@ -403,6 +405,7 @@ function saveNewColumn(text) {
 
 //POP-UP MENU ПРИ КЛИКЕ НА КАРТОЧКУ
 function clickOnCard(el) {
+    $(el).addClass('dblclicked');
     makeAutoSize();
     let t = $(el).attr('far');
     let requestURL = 'http://localhost/iNordic/bitkit/api/get-card-info.php';
@@ -437,6 +440,7 @@ function clickOnCard(el) {
 };
 function popupClose() {
     $('.popup').removeClass('popup__open');
+    $('.dblclicked').removeClass('dblclicked');
 };
 
 //NEW_POPUP 
@@ -511,10 +515,22 @@ function drawSavedColumns() {
                                 let card_id = f_data[count][0];
                                 let card_title = f_data[count][1];
                                 let card_descT = f_data[count][2];
-                                let card_marks = f_data[count][3];
-                                console.log(card_marks);
+                                let card_marks = f_data[count][4];
                                 let simp_card = simple__card.replace('${far}', card_id);
                                 simp_card = simp_card.replace('${text}', card_title);
+                                if (card_marks == '') {
+                                    simp_card = simp_card.replace(/mark/i, ' ');
+                                }
+                                else {
+                                    let tut = marksToCards(card_marks);
+                                    let marks_to_be_written = ' ';
+                                    for (let k = 0; k < Object.keys(tut).length; k++) {
+                                        let mr = mark__to__card.replace('${color}', tut[k][1]);
+                                        mr = mr.replace(/text-for-card/i, tut[k][2]);
+                                        marks_to_be_written += mr;
+                                    }
+                                    simp_card = simp_card.replace(/mark/i, marks_to_be_written);
+                                }
                                 if (card_descT != null) {
                                     simp_card = simp_card.replace(/icon/i, card__desc);
                                 }
@@ -851,14 +867,40 @@ function showMarksOnPopUp(trg) {
         success: function (re) {
             let n_data = JSON.parse(re);
             let ticked_marks_to_show = ' ';
+            let str = '';
             for (let q = 0; q < Object.keys(n_data).length; q++) {
                 let rep = popup__mark.replace('${title}', n_data[q][2]);
                 rep = rep.replace('${color}', n_data[q][1]);
-
+                let zxc = mark__to__card.replace('${color}', n_data[q][1]);
+                zxc = zxc.replace(/text-for-card/i, n_data[q][2]);
+                str += zxc;
                 ticked_marks_to_show += rep;
             }
+            let p = document.querySelector('.dblclicked');
+            let po = $(p).find('.card__top');
+            $(po).html(str);
             document.querySelectorAll('.popup-mark').forEach(e => e.remove());
             $("#add__mark-btn").before(ticked_marks_to_show);
         }
     });
+}
+
+
+function marksToCards(text) {
+    let result = '';
+    let requestURL = 'http://localhost/iNordic/bitkit/api/get-mark-info.php';
+    const data = {
+        "marks": text
+    }
+    $.ajax({
+        url: requestURL,
+        type: "POST",
+        async: false,
+        data: data,
+        dataType: 'json',
+        success: function (response, textStatus, jqXHR) {
+            result = response;
+        }
+    });
+    return result;
 }
